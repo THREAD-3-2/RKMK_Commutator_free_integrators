@@ -1,5 +1,6 @@
 function rc = controls(m1,m2,my,L1,L2,J1,J2,B,trajectory)
 % main function used to define the control functions
+
 % equation numbers are a reference to Ref[29] in the paper related to the code
 
 
