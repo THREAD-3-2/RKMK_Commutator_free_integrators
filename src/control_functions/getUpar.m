@@ -1,5 +1,6 @@
 function upar = getUpar(m1,m2,my,L1,L2,B,trajectory)
 % support function used to define the control functions and the vector field
+
 % equation numbers are a reference to Ref[29] in the paper related to the code
 
 % upar is a 6x1 vector, with upar(1:3) = upar1 , upar(4:6) = upar2
