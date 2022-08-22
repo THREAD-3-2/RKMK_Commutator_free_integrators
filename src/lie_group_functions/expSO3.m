@@ -1,7 +1,7 @@
 function [ExpSO3_] = expSO3(x)
 % Exponential map on SO(3)
 %
-% :param input: element of the lie algebra so(3), represented as a vector in R3         
+% :param input: element of the lie algebra so(3), represented as a vector with 3 components.       
 %
 % :returns: element of the group SO(3)
         
