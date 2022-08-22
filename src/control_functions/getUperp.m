@@ -1,5 +1,6 @@
 function uperp = getUperp(m1,m2,my,L1,L2,B,trajectory)
 % support function used to define the control functions and the vector field
+
 % equation numbers are a reference to Ref[29] in the paper related to the code
 
 % uperp is a 6x1 vector so uperp1 = uperp(1:3), uperp2 = uperp(4:6)
