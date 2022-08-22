@@ -1,8 +1,8 @@
 function vec = dexpinvSE3 (sigma, input)
 % Inverse of the derivative of the exponential map on SE(3)
 %
-% :param sigma: element in the lie algebra se(3), represented as a 6X1 vector  
-% :param input: element in the lie algebra se(3), represented as a 6X1 vector  
+% :param sigma: element in the lie algebra se(3), represented as a 6x1 vector  
+% :param input: element in the lie algebra se(3), represented as a 6x1 vector  
 %
 % :returns: inverse of dexp_sigma(input) as 6x1 vector
 
