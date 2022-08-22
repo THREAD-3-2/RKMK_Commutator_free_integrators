@@ -7,7 +7,7 @@ Dynamics of two quadrotors transporting a mass point
 
 We consider a multibody system made of two cooperating quadrotor unmanned aerial vehicles (UAV) connected to a point mass (suspended load) via rigid links. This model is described in `(Lee, Sreenath, Kumar, 2013) <https://dx.doi.org/10.1109/CDC.2013.6760757>`_.
 
-We introduce an inertial frame whose third axis goes in the direction of gravity, but opposite orientation, and we denote with :math:` y\in\mathbb{R}^3` the mass point and with :math:`y_1,y_2\in\mathbb{R}^3` the two quadrotors. We assume that the links between the two quadrotors and the mass point are of a fixed length :math:`L_1, L_2\in\mathbb{R}^+`. The configuration variables of the system are: the position of the mass point in the inertial frame, :math:`y\in \mathbb{R}^3`, the attitude matrices of the two quadrotors, :math:`(R_1, R_2)\in (SO(3))^2` and the directions of the links which connect the center of mass of each quadrotor respectively with the mass point, :math:`(q_1,q_2)\in (S^2)^2`. The configuration manifold of the system is 
+We introduce an inertial frame whose third axis goes in the direction of gravity, but opposite orientation, and we denote with :math:`y\in\mathbb{R}^3` the mass point and with :math:`y_1,y_2\in\mathbb{R}^3` the two quadrotors. We assume that the links between the two quadrotors and the mass point are of a fixed length :math:`L_1, L_2\in\mathbb{R}^+`. The configuration variables of the system are: the position of the mass point in the inertial frame, :math:`y\in \mathbb{R}^3`, the attitude matrices of the two quadrotors, :math:`(R_1, R_2)\in (SO(3))^2` and the directions of the links which connect the center of mass of each quadrotor respectively with the mass point, :math:`(q_1,q_2)\in (S^2)^2`. The configuration manifold of the system is 
 
 .. math::
 
@@ -31,7 +31,7 @@ where :math:`\Omega_1,\Omega_2\in\mathbb{R}^3` represent the angular velocities 
 		L(y,\dot{y},R_1,\Omega_1,R_2,\Omega_2,q_1,\omega_1,q_2,\omega_2): \mathbb{R}^6\times \left(SO(3)\times \mathfrak{so}(3)\right)^2\times (TS^2)^2\rightarrow \mathbb{R},
     	\end{align}
 
-as the difference of the total kinetic energy of the system and the total potential (gravitational) energy, :math:`\L=T-U`, with:
+as the difference of the total kinetic energy of the system and the total potential (gravitational) energy, :math:`L=T-U`, with:
 
 .. math::
 
@@ -88,7 +88,7 @@ Since the matrix :math:`A(z)` is invertible, we pass to the following set of equ
 .. math::
 
    	\begin{align}
-		\dot{z} = A^{-1}(z)h(z):=\Tilde{h}(z) :=\bar{h}(P) = [\bar{h}_1(P),...,\bar{h}_7(P)]^T.
+		\dot{z} = A^{-1}(z)h(z):=\tilde{h}(z) :=\bar{h}(P) = [\bar{h}_1(P),...,\bar{h}_7(P)]^T.
 	\end{align}
 	
 .. _elec_ibvp:
@@ -96,7 +96,7 @@ Since the matrix :math:`A(z)` is invertible, we pass to the following set of equ
 Analysis via transitive group action
 ------------------------------------
 
-In this section we show how to obtain the local representation of the vector field :math:`F\in\mathfrak{X}(M)` in terms of the infinitesimal generator of the transitive group action :math:`\psi`. We start by identifying the phase space :math:`M` with 
+In this section we show how to obtain the local representation of the vector field :math:`F\in\mathfrak{X}(M)` in terms of the infinitesimal generator of a transitive group action :math:`\psi`. We start by identifying the phase space :math:`M` with 
 
 .. math::
 
@@ -120,7 +120,7 @@ where the groups are combined with a direct-product structure and :math:`\mathbb
 		g=((a_1,a_2),((B_1,b_1),(B_2,b_2)),((C_1,c_1),(C_2,c_2)))\in \bar{G}
 	\end{align}
 
-and a point :math:`\P \in M` in the manifold, we consider the following left action
+and a point :math:`P \in M` in the manifold, we consider the following left action
 
 .. math::
 
@@ -130,7 +130,7 @@ and a point :math:`\P \in M` in the manifold, we consider the following left act
 		\end{split}
 	\end{align}
 
-The infinitesimal generator associated to 
+It can be proved that this is a well-defined and transitive action of :math:`\bar{G}` on :math:`M`. The infinitesimal generator associated to 
 
 .. math::
 
@@ -144,11 +144,12 @@ where :math:`\mathfrak{\bar{g}}=T_e\bar{G}`, writes
 
 	\begin{align}
 		\begin{split}
-		\infgen(\xi)\vert_P = [\xi_1,\;\; \xi_2, \;\; \hat{\eta}_1R_1,\;\; \eta_2,\;\; &\hat{\eta}_3R_2,\;\;  \eta_4,\;\;\\ 
+		\psi_{*}(\xi)\vert_P = [\xi_1,\;\; \xi_2, \;\; \hat{\eta}_1R_1,\;\; \eta_2,\;\; &\hat{\eta}_3R_2,\;\;  \eta_4,\;\;\\ 
 		& \hat{\mu}_1q_1,\;\; \hat{\mu}_1\omega_1 + \hat{\mu}_2q_1, \;\; \hat{\mu}_3q_2,\;\; \hat{\mu}_3\omega_2 + \hat{\mu}_4q_2 ].
 		\end{split}
 	\end{align}
-We can now focus on the construction of the function :math:`f:M\rightarrow \bar{\mathfrak{g}}` such that :math:`\infgen(f(P))\vert_P=F\vert_P`, where
+	
+We can now construct the function :math:`f:M\rightarrow \bar{\mathfrak{g}}` such that :math:`\psi_{*}(f(P))\vert_P=F\vert_P`, where
 
 .. math::
 
@@ -168,5 +169,3 @@ is the vector field obtained combining the kinematic and dynamic equations of mo
 		\;\;&\omega_1,\;\; q_1\times \bar{h}_5(P),\;\;\omega_2,\;\; q_2\times \bar{h}_6(P)]\in\bar{\mathfrak{g}}.
 		\end{split}
 	\end{align}
-
-
