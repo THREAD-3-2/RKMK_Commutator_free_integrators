@@ -1,5 +1,5 @@
 function u=deriv4hatq2w(q,w,qdot,wdot,q2dot,w2dot,q3dot,w3dot,q4dot,w4dot)
-    
+% support function used to define the control functions 
     
 %   u = (q'*w)*q - (q'*q)*w;
 
