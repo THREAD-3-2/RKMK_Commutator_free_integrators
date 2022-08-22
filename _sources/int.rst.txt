@@ -4,7 +4,7 @@
 RKMK and Commutator free Lie group methods
 ==========================================
 
-Lie group integrators solve differential equations whose solution evolve on a manifold :math:`\mathcal{M}`, i.e. the solution is a curve :math:`y(t)\in\mathcal{M}` whose tangent at any point coincides with a vector field :math:`F\in\mathcal{X}(\M)` and passes through a designated initial value :math:`y_0` at :math:`t=t_0`:
+Lie group integrators solve differential equations whose solution evolve on a manifold :math:`\mathcal{M}`, i.e. the solution is a curve :math:`y(t)\in\mathcal{M}` whose tangent at any point coincides with a vector field :math:`F\in\mathcal{X}(\mathcal{M})` and passes through a designated initial value :math:`y_0` at :math:`t=t_0`:
 
 .. math::
 
