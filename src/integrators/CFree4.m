@@ -1,4 +1,4 @@
-function sol = CFreeRK4(f,action,exponential,h,p,traiettoria,t)
+function sol = CFree4(f,action,exponential,h,p,traiettoria,t)
 % Commutator-free time integrator order 4
 %
 % :param f: map f from the phase space (on which the vector field is defined) to the Lie algebra
