@@ -1,5 +1,6 @@
 function u=deriv3hatq2w(q,w,qdot,wdot,q2dot,w2dot,q3dot,w3dot)
-    
+% support function used to define the control functions
+
 %   u = (q'*w)*q - (q'*q)*w;
 
 %   u = (qdot'*w + q'*wdot)*q + (q'*w)*qdot - 2*(q'*qdot)*w - (q'*q)*wdot;
