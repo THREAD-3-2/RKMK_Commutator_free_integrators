@@ -47,7 +47,7 @@ and
 		U= -m_yge_3^Ty - \sum_{i=1}^2 m_ige_3^T(y-L_iq_i),
 	\end{align}
 
-where :math:`J_1,J_2\in\mathbb{R}^{3\times 3}` are the inertia matrices of the two quadrotors and :math:`m_1,m_2\in\mathbb{R}^+` are their respective total masses. In this system each of the two quadrotors generates a thrust force, which we denote with :math:`u_i = -T_iR_ie_3\in\mathbb{R}^3`, where :math:`T_i` is the magnitude, while :math:`e_3` is the direction of this vector in the :math:`i-`th body-fixed frame, :math:`i=1,2`. The presence of these forces make it a non conservative system. Moreover, the rotors of the two quadrotors generate a moment vector, and we denote with :math:`M_1, M_2\in\mathbb{R}^3` the cumulative moment vector of each of the two quadrotors. By using the Lagrange--d'Alambert's principle, we get the following Euler--Lagrange equations: 
+where :math:`J_1,J_2\in\mathbb{R}^{3\times 3}` are the inertia matrices of the two quadrotors and :math:`m_1,m_2\in\mathbb{R}^+` are their respective total masses. In this system each of the two quadrotors generates a thrust force, which we denote with :math:`u_i = -T_iR_ie_3\in\mathbb{R}^3`, where :math:`T_i` is the magnitude, while :math:`e_3` is the direction of this vector in the i-th body-fixed frame, :math:`i=1,2`. The presence of these forces make it a non conservative system. Moreover, the rotors of the two quadrotors generate a moment vector, and we denote with :math:`M_1, M_2\in\mathbb{R}^3` the cumulative moment vector of each of the two quadrotors. By using the Lagrange--d'Alambert's principle, we get the following Euler--Lagrange equations: 
 
 .. math::
 
