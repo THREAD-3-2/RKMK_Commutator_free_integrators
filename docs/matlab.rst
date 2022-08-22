@@ -33,19 +33,19 @@ src/integrators
 
 
 src/lie_group_functions
-===============
+=======================
 
-.. mat:autoscript:: src.Lie_group_functions.hat
+.. mat:autoscript:: src.lie_group_functions.hat
 
-.. mat:autoscript:: src.Lie_group_functions.invhat
+.. mat:autoscript:: src.lie_group_functions.invhat
 
-.. mat:autoscript:: src.Lie_group_functions.expSO3
+.. mat:autoscript:: src.lie_group_functions.expSO3
 
-.. mat:autoscript:: src.Lie_group_functions.expSE3
+.. mat:autoscript:: src.lie_group_functions.expSE3
 
-.. mat:autoscript:: src.Lie_group_functions.dexpinvSO3
+.. mat:autoscript:: src.lie_group_functions.dexpinvSO3
 
-.. mat:autoscript:: src.Lie_group_functions.dexpinvSE3
+.. mat:autoscript:: src.lie_group_functions.dexpinvSE3
 
 
 src/pre_post_processing
