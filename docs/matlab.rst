@@ -61,7 +61,7 @@ src/pre_post_processing
 src/control_functions
 =======================
 
-.. mat:autofunction:: src.control_functions.control
+.. mat:autofunction:: src.control_functions.controls
 
 .. mat:autofunction:: src.control_functions.getUpar
 
