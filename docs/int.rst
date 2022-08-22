@@ -28,26 +28,25 @@ The underlying idea of Runge-Kutta-Munthe-Kaas (RKMK) methods is to express a ve
 where :math:`\sigma_1\approx \sigma(h_n)\in\mathfrak{g}` is computed with a Runge-Kutta method. 
 
 
-The transformed differential equation for :math:`\sigma(t)` makes use of the derivative of the exponential mapping. The map :math:`v\mapsto\dexp_u(v)` is linear and invertible when :math:`u` belongs to some sufficiently small neighborhood of :math:`0\in\g`. It has an expansion in nested Lie brackets. Using the operator $\ad_u(v)=[u,v]$ and its powers
-:math:`\ad_u^2 v=[u,[u,v]]:math:` etc, one can write
+The transformed differential equation for :math:`\sigma(t)` makes use of the derivative of the exponential mapping. The map :math:`v\mapsto\textrm{dexp}_u(v)` is linear and invertible when :math:`u` belongs to some sufficiently small neighborhood of :math:`0\in\mathfrak{g}`. It has an expansion in nested Lie brackets and, using the operator :math:`\textrm{ad}_u(v)=[u,v]` and its powers :math:`\textrm{ad}_u^2 v=[u,[u,v]]` etc, one can write
 
 .. math::
     :name: eq:2
     
     \begin{align}
-        \dexp_u(v) = \left.\frac{e^z-1}{z}\right|_{z=\ad_u}(v) = v + \frac12[u,v] + \frac16[u,[u,v]] + \cdots
+        \textrm{dexp}_u(v) = \left.\frac{e^z-1}{z}\right|_{z=\textrm{ad}_u}(v) = v + \frac12[u,v] + \frac16[u,[u,v]] + \cdots.
     \end{align}
 
-and the inverse is
+The inverse is
 
 .. math::
     :name: eq:3
     
     \begin{align}
-        \dexp_u^{-1}(v) =\left.\frac{z}{e^z-1}\right|_{z=\ad_u}(v)= v -\frac12[u,v] + \frac1{12}[u,[u,v]]+\cdots
+        \textrm{dexp}_u^{-1}(v) =\left.\frac{z}{e^z-1}\right|_{z=\textrm{ad}_u}(v)= v -\frac12[u,v] + \frac1{12}[u,[u,v]]+\cdots.
     \end{align}
 
-To evaluate :math:`\dexp_u^{-1}(v)` one can either truncate the series :ref:`(3) <eq:2>`, or compute its exact expression for the particular Lie algebra we use.
+To evaluate :math:`\textrm{dexp}_u^{-1}(v)` one can either truncate the series :ref:`(3) <eq:2>`, or compute its exact expression for the particular Lie algebra under consideration.
 
 The second class of Lie group integrators to be considered here are the commutator-free methods, named this way to emphasize the contrast to RKMK schemes which usually include commutators in the method format. These schemes include the Crouch-Grossman methods and have the format
 
