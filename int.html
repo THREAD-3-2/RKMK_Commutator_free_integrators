@@ -52,18 +52,17 @@
     \end{cases}
 \end{align}\end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\sigma_1\approx \sigma(h_n)\in\mathfrak{g}\)</span> is computed with a Runge-Kutta method.</p>
-<p>The transformed differential equation for <span class="math notranslate nohighlight">\(\sigma(t)\)</span> makes use of the derivative of the exponential mapping. The map <span class="math notranslate nohighlight">\(v\mapsto\dexp_u(v)\)</span> is linear and invertible when <span class="math notranslate nohighlight">\(u\)</span> belongs to some sufficiently small neighborhood of <span class="math notranslate nohighlight">\(0\in\g\)</span>. It has an expansion in nested Lie brackets. Using the operator $ad_u(v)=[u,v]$ and its powers
-<span class="math notranslate nohighlight">\(\ad_u^2 v=[u,[u,v]]:math:\)</span> etc, one can write</p>
+<p>The transformed differential equation for <span class="math notranslate nohighlight">\(\sigma(t)\)</span> makes use of the derivative of the exponential mapping. The map <span class="math notranslate nohighlight">\(v\mapsto\textrm{dexp}_u(v)\)</span> is linear and invertible when <span class="math notranslate nohighlight">\(u\)</span> belongs to some sufficiently small neighborhood of <span class="math notranslate nohighlight">\(0\in\mathfrak{g}\)</span>. It has an expansion in nested Lie brackets and, using the operator <span class="math notranslate nohighlight">\(\textrm{ad}_u(v)=[u,v]\)</span> and its powers <span class="math notranslate nohighlight">\(\textrm{ad}_u^2 v=[u,[u,v]]\)</span> etc, one can write</p>
 <div class="math notranslate nohighlight" id="eq-2">
 <span id="equation-eq-2"></span><span class="eqno">(2)<a class="headerlink" href="#eq-2" title="Permalink to this equation">¶</a></span>\[\begin{align}
-    \dexp_u(v) = \left.\frac{e^z-1}{z}\right|_{z=\ad_u}(v) = v + \frac12[u,v] + \frac16[u,[u,v]] + \cdots
+    \textrm{dexp}_u(v) = \left.\frac{e^z-1}{z}\right|_{z=\textrm{ad}_u}(v) = v + \frac12[u,v] + \frac16[u,[u,v]] + \cdots.
 \end{align}\]</div>
-<p>and the inverse is</p>
+<p>The inverse is</p>
 <div class="math notranslate nohighlight" id="eq-3">
 <span id="equation-eq-3"></span><span class="eqno">(3)<a class="headerlink" href="#eq-3" title="Permalink to this equation">¶</a></span>\[\begin{align}
-    \dexp_u^{-1}(v) =\left.\frac{z}{e^z-1}\right|_{z=\ad_u}(v)= v -\frac12[u,v] + \frac1{12}[u,[u,v]]+\cdots
+    \textrm{dexp}_u^{-1}(v) =\left.\frac{z}{e^z-1}\right|_{z=\textrm{ad}_u}(v)= v -\frac12[u,v] + \frac1{12}[u,[u,v]]+\cdots.
 \end{align}\]</div>
-<p>To evaluate <span class="math notranslate nohighlight">\(\dexp_u^{-1}(v)\)</span> one can either truncate the series <a class="reference internal" href="#eq-2"><span class="std std-ref">(3)</span></a>, or compute its exact expression for the particular Lie algebra we use.</p>
+<p>To evaluate <span class="math notranslate nohighlight">\(\textrm{dexp}_u^{-1}(v)\)</span> one can either truncate the series <a class="reference internal" href="#eq-2"><span class="std std-ref">(3)</span></a>, or compute its exact expression for the particular Lie algebra under consideration.</p>
 <p>The second class of Lie group integrators to be considered here are the commutator-free methods, named this way to emphasize the contrast to RKMK schemes which usually include commutators in the method format. These schemes include the Crouch-Grossman methods and have the format</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
