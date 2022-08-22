@@ -1,6 +1,8 @@
-function uperp = getUperp(m1,m2,my,L1,L2,B,traiettoria)
-    
-    %uperp is a 6x1 vector so uperp1 = uperp(1:3), uperp2 = uperp(4:6)
+function uperp = getUperp(m1,m2,my,L1,L2,B,trajectory)
+% support function used to define the control functions and the vector field
+% equation numbers are a reference to Ref[29] in the paper related to the code
+
+% uperp is a 6x1 vector so uperp1 = uperp(1:3), uperp2 = uperp(4:6)
     
     ky = 12;
     kydot = 5;
@@ -10,19 +12,11 @@ function uperp = getUperp(m1,m2,my,L1,L2,B,traiettoria)
     g = 9.81;
     e3 = [0;0;1];
 
-%     yd = [1;1;1];
-%     yd_dot = [0;0;0];
-%     yd_ddot = [0;0;0];
-%     yd_dddot = [0;0;0];
-%     yd_ddddot = [0;0;0];
-
-    yd = traiettoria(:,1);
-    yd_dot = traiettoria(:,2);
-    yd_ddot = traiettoria(:,3);
-    yd_dddot = traiettoria(:,4);
-    yd_ddddot = traiettoria(:,5);
-%     yd_dddddot = traiettoria(:,6);
-%     yd_ddddddot = traiettoria(:,7);
+    yd = trajectory(:,1);
+    yd_dot = trajectory(:,2);
+    yd_ddot = trajectory(:,3);
+    yd_dddot = trajectory(:,4);
+    yd_ddddot = trajectory(:,5);
 
     r1d = [sin(deg2rad(30));0;cos(deg2rad(30))];
     r2d = [-sin(deg2rad(30));0;cos(deg2rad(30))];
