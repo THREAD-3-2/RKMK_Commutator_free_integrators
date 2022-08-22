@@ -21,31 +21,31 @@ src
 src/integrators
 ===============
 
-.. mat:autoscript:: src.integrators.LieEuler
+.. mat:autofunction:: src.integrators.LieEuler
 
-.. mat:autoscript:: src.integrators.RKMK2Heun
+.. mat:autofunction:: src.integrators.RKMK2Heun
 
-.. mat:autoscript:: src.integrators.RKMK3
+.. mat:autofunction:: src.integrators.RKMK3
 
 .. mat:autoscript:: src.integrators.RKMK4
 
-.. mat:autoscript:: src.integrators.CFree4
+.. mat:autofunction:: src.integrators.CFree4
 
 
 src/lie_group_functions
 =======================
 
-.. mat:autoscript:: src.lie_group_functions.hat
+.. mat:autofunction:: src.lie_group_functions.hat
 
-.. mat:autoscript:: src.lie_group_functions.invhat
+.. mat:autofunction:: src.lie_group_functions.invhat
 
-.. mat:autoscript:: src.lie_group_functions.expSO3
+.. mat:autofunction:: src.lie_group_functions.expSO3
 
-.. mat:autoscript:: src.lie_group_functions.expSE3
+.. mat:autofunction:: src.lie_group_functions.expSE3
 
-.. mat:autoscript:: src.lie_group_functions.dexpinvSO3
+.. mat:autofunction:: src.lie_group_functions.dexpinvSO3
 
-.. mat:autoscript:: src.lie_group_functions.dexpinvSE3
+.. mat:autofunction:: src.lie_group_functions.dexpinvSE3
 
 
 src/pre_post_processing
@@ -61,24 +61,24 @@ src/pre_post_processing
 src/control_functions
 =======================
 
-.. mat:autoscript:: src.control_functions.control
+.. mat:autofunction:: src.control_functions.control
 
-.. mat:autoscript:: src.control_functions.getUpar
+.. mat:autofunction:: src.control_functions.getUpar
 
-.. mat:autoscript:: src.control_functions.getUperp
+.. mat:autofunction:: src.control_functions.getUperp
 
-.. mat:autoscript:: src.control_functions.deriv1
+.. mat:autofunction:: src.control_functions.deriv1
 
-.. mat:autoscript:: src.control_functions.deriv2
+.. mat:autofunction:: src.control_functions.deriv2
 
-.. mat:autoscript:: src.control_functions.deriv3
+.. mat:autofunction:: src.control_functions.deriv3
 
-.. mat:autoscript:: src.control_functions.deriv4
+.. mat:autofunction:: src.control_functions.deriv4
 
-.. mat:autoscript:: src.control_functions.derivhatq2w
+.. mat:autofunction:: src.control_functions.derivhatq2w
 
-.. mat:autoscript:: src.control_functions.deriv2hatq2w
+.. mat:autofunction:: src.control_functions.deriv2hatq2w
 
-.. mat:autoscript:: src.control_functions.deriv3hatq2w
+.. mat:autofunction:: src.control_functions.deriv3hatq2w
 
-.. mat:autoscript:: src.control_functions.deriv4hatq2w
+.. mat:autofunction:: src.control_functions.deriv4hatq2w
