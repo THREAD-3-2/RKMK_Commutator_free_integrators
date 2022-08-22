@@ -155,6 +155,97 @@ International Journal of Computer Mathematics, 99:1, 58-88.</p>
 </section>
 <section id="src-lie-group-functions">
 <h2>src/lie_group_functions<a class="headerlink" href="#src-lie-group-functions" title="Permalink to this heading">¶</a></h2>
+<dl class="mat script">
+<dt class="sig sig-object mat" id="src.lie_group_functions.hat">
+<span class="sig-prename descclassname"><span class="pre">src.lie_group_functions.</span></span><span class="sig-name descname"><span class="pre">hat</span></span><a class="headerlink" href="#src.lie_group_functions.hat" title="Permalink to this definition">¶</a></dt>
+<dd><p>It returns the skew symmetric matrix A associated to the vector v</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>v</strong> – vector with 3 components</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>element of the Lie algebra so(3) (skew symmetric 3x3 matrix)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat script">
+<dt class="sig sig-object mat" id="src.lie_group_functions.invhat">
+<span class="sig-prename descclassname"><span class="pre">src.lie_group_functions.</span></span><span class="sig-name descname"><span class="pre">invhat</span></span><a class="headerlink" href="#src.lie_group_functions.invhat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inverse of the hat function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>A</strong> – element of the Lie algebra so(3) (skew symmetric 3x3 matrix)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>3x1 column vector v</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat script">
+<dt class="sig sig-object mat" id="src.lie_group_functions.expSO3">
+<span class="sig-prename descclassname"><span class="pre">src.lie_group_functions.</span></span><span class="sig-name descname"><span class="pre">expSO3</span></span><a class="headerlink" href="#src.lie_group_functions.expSO3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exponential map on SO(3)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>input</strong> – element of the lie algebra so(3), represented as a vector in R3</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>element of the group SO(3)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat script">
+<dt class="sig sig-object mat" id="src.lie_group_functions.expSE3">
+<span class="sig-prename descclassname"><span class="pre">src.lie_group_functions.</span></span><span class="sig-name descname"><span class="pre">expSE3</span></span><a class="headerlink" href="#src.lie_group_functions.expSE3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exponential map on SE(3)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>input</strong> – element of the lie algebra se(3) represented as [hat(u),v],
+with u and v 3x1 column vectors</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>element of the group SE(3)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat script">
+<dt class="sig sig-object mat" id="src.lie_group_functions.dexpinvSO3">
+<span class="sig-prename descclassname"><span class="pre">src.lie_group_functions.</span></span><span class="sig-name descname"><span class="pre">dexpinvSO3</span></span><a class="headerlink" href="#src.lie_group_functions.dexpinvSO3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inverse of the derivative of the exponential map on SO(3)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>v</strong> – element in the lie algebra so(3), represented as a 3X1 vector</p></li>
+<li><p><strong>input</strong> – element in the lie algebra so(3), represented as a 3X1 vector</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>inverse of dexp_v(input) as 3x1 vector</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat script">
+<dt class="sig sig-object mat" id="src.lie_group_functions.dexpinvSE3">
+<span class="sig-prename descclassname"><span class="pre">src.lie_group_functions.</span></span><span class="sig-name descname"><span class="pre">dexpinvSE3</span></span><a class="headerlink" href="#src.lie_group_functions.dexpinvSE3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inverse of the derivative of the exponential map on SE(3)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sigma</strong> – element in the lie algebra se(3), represented as a 6X1 vector</p></li>
+<li><p><strong>input</strong> – element in the lie algebra se(3), represented as a 6X1 vector</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>inverse of dexp_sigma(input) as 6x1 vector</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 <section id="src-pre-post-processing">
 <h2>src/pre_post_processing<a class="headerlink" href="#src-pre-post-processing" title="Permalink to this heading">¶</a></h2>
