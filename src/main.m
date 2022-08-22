@@ -1,8 +1,7 @@
 % main function
 %
 % Example on the application of Lie group integrators for the solution of 
-% the equations of motion of a system defined on R3 x (SO3)^2 x S2^2
-% August 2022, Andrea Leone @ NTNU
+% the equations of motion of a multibody system, August 2022, Andrea Leone @ NTNU
 %
 % Ref.: E. Celledoni, E. Çokaj, A. Leone, D. Murari, B. Owren.
 % "Lie group integrators for mechanical systems",
@@ -193,7 +192,7 @@ for i = 1:N-1
 %     z2 = RKMK2Heun(vector_field,exponential,action,z2,dt,sigma0,d_trajectory,t);
 %     z3 = RKMK3(vector_field,exponential,action,z2,dt,sigma0,d_trajectory,t);
     z4 = RKMK4(vector_field,exponential,action,z4,dt,sigma0,d_trajectory,t);
-%     z5 = CFreeRK4(f,action,exponential,dt,z5,sigma0,d_trajectory,t);
+%     z5 = CFree4(f,action,exponential,dt,z5,sigma0,d_trajectory,t);
 
     sol=z4; % solution at time t=time(i) with integrator RKMK4 in this case
 
