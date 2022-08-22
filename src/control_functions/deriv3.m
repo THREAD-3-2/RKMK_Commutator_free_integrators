@@ -1,4 +1,12 @@
 function u = deriv3(v,vdot,v2dot,v3dot)
+% support function used to define the control functions
+%
+% :param v: vector 
+% :param vdot: time derivative of vector v  
+% :param v2dot: second time derivative of vector v  
+% :param v3dot: third time derivative of vector v  
+%
+% :returns: time derivative of the output of deriv2
 
     norma = vecnorm(v);
     norma1d = (vdot'*v)/norma;
@@ -17,4 +25,5 @@ function u = deriv3(v,vdot,v2dot,v3dot)
 %     u = (v3dot*norma^3 + v2dot*norma1d*norma^2 - 3*vdot*norma2d*norma^2 -...
 %         v*norma3d*norma^2 + 2*v*norma2d*norma1d*norma - 2*vdot*norma1d^2*norma +...
 %         2*v*norma1d^3)/norma^8;
+
 end
