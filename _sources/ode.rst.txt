@@ -91,6 +91,8 @@ Since the matrix :math:`A(z)` is invertible, we pass to the following set of equ
 		\dot{z} = A^{-1}(z)h(z):=\tilde{h}(z) :=\bar{h}(P) = [\bar{h}_1(P),...,\bar{h}_7(P)]^T.
 	\end{align}
 	
+We highlight that the inputs :math:`\{u_i^{\parallel},u_i^{\perp},M_i\}_{i=1,2}` act as controls. They are constructed such that the point mass asymptotically follows a given desired trajectory :math:`y_d \in \mathbb{R}^3`, given by a smooth function of time, and the quadrotors maintain a prescribed formation relative to the point mass. In particular, the parallel components :math:`u_i^{\parallel}` are designed such that the payload follows the desired trajectory :math:`y_d` (load transportation problem), while the normal components :math:`u_i^{\perp}` are designed such that :math:`q_i` converge to desired directions :math:`q_{id}` (tracking problem in :math:`S_2`). Finally, :math:`M_i` are designed to control the attitude of the quadrotors.
+	
 .. _elec_ibvp:
 
 Analysis via transitive group action
