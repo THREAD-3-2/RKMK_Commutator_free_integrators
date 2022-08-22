@@ -32,7 +32,7 @@ src/integrators
 .. mat:autoscript:: src.integrators.CFree4
 
 
-src/Lie_group_functions
+src/lie_group_functions
 ===============
 
 .. mat:autoscript:: src.Lie_group_functions.hat
