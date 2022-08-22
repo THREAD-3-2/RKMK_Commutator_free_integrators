@@ -1,8 +1,8 @@
 function A = dexpinvSO3(v,input)
 % Inverse of the derivative of the exponential map on SO(3)
 %
-% :param v: element in the lie algebra so(3), represented as a 3X1 vector   
-% :param input: element in the lie algebra so(3), represented as a 3X1 vector   
+% :param v: element in the lie algebra so(3), represented as a 3x1 vector   
+% :param input: element in the lie algebra so(3), represented as a 3x1 vector   
 %
 % :returns: inverse of dexp_v(input) as 3x1 vector
 
