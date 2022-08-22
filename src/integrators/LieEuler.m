@@ -3,7 +3,7 @@ function sol = LieEuler(vector_field,exponential,action,p,h,sigma0,trajectory,t)
 %
 % :param vector_field: right hand side of the ODE
 % :param action: Lie group action
-% :param expinential: exponential map from the Lie algebra to the Lie group
+% :param exponential: exponential map from the Lie algebra to the Lie group
 % :param p: solution at time t_n
 % :param h: time step size
 % :param sigma0: initial value of the curve sigma on the Lie algebra
