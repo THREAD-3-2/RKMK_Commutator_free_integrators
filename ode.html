@@ -40,10 +40,9 @@
 <p>We consider a multibody system made of two cooperating quadrotor unmanned aerial vehicles (UAV) connected to a point mass (suspended load) via rigid links. This model is described in <a class="reference external" href="https://dx.doi.org/10.1109/CDC.2013.6760757">(Lee, Sreenath, Kumar, 2013)</a>.</p>
 <p>We introduce an inertial frame whose third axis goes in the direction of gravity, but opposite orientation, and we denote with :math:` yinmathbb{R}^3` the mass point and with <span class="math notranslate nohighlight">\(y_1,y_2\in\mathbb{R}^3\)</span> the two quadrotors. We assume that the links between the two quadrotors and the mass point are of a fixed length <span class="math notranslate nohighlight">\(L_1, L_2\in\mathbb{R}^+\)</span>. The configuration variables of the system are: the position of the mass point in the inertial frame, <span class="math notranslate nohighlight">\(y\in \mathbb{R}^3\)</span>, the attitude matrices of the two quadrotors, <span class="math notranslate nohighlight">\((R_1, R_2)\in (SO(3))^2\)</span> and the directions of the links which connect the center of mass of each quadrotor respectively with the mass point, <span class="math notranslate nohighlight">\((q_1,q_2)\in (S^2)^2\)</span>. The configuration manifold of the system is</p>
 <div class="math notranslate nohighlight">
-\[\]</div>
-<p>begin{align}
-Q=mathbb{R}^3times (SO(3))^2 times (S^2)^2.
-end{align}</p>
+\[\begin{align}
+        Q=\mathbb{R}^3\times (SO(3))^2 \times (S^2)^2.
+\end{align}\]</div>
 <p>In order to write the equations of motion of the system, we identify <span class="math notranslate nohighlight">\(TSO(3)\simeq SO(3)\times \mathfrak{so}(3)\)</span> via left-trivialization. This choice allows us to write the kinematic equations of the system as</p>
 <div class="math notranslate nohighlight">
 \[\begin{align}
@@ -93,6 +92,60 @@ These equations, coupled with the kinematic equations, describe the dynamics of 
 \[\begin{align}
         \dot{z} = A^{-1}(z)h(z):=\Tilde{h}(z) :=\bar{h}(P) = [\bar{h}_1(P),...,\bar{h}_7(P)]^T.
 \end{align}\]</div>
+<section id="analysis-via-transitive-group-action">
+<span id="elec-ibvp"></span><h2>Analysis via transitive group action<a class="headerlink" href="#analysis-via-transitive-group-action" title="Permalink to this heading">¶</a></h2>
+<p>In this section we show how to obtain the local representation of the vector field <span class="math notranslate nohighlight">\(F\in\mathfrak{X}(M)\)</span> in terms of the infinitesimal generator of the transitive group action <span class="math notranslate nohighlight">\(\psi\)</span>. We start by identifying the phase space <span class="math notranslate nohighlight">\(M\)</span> with</p>
+<div class="math notranslate nohighlight">
+\[\begin{align}
+        M\simeq T\mathbb{R}^3\times (TSO(3))^2 \times (TS^2)^2.
+\end{align}\]</div>
+<p>The group we consider is</p>
+<div class="math notranslate nohighlight">
+\[\begin{align}
+        \bar{G} = \mathbb{R}^6 \times (TSO(3))^2 \times (SE(3))^2,
+\end{align}\]</div>
+<p>where the groups are combined with a direct-product structure and <span class="math notranslate nohighlight">\(\mathbb{R}^6\)</span> is the additive group. For a group element</p>
+<div class="math notranslate nohighlight">
+\[\begin{align}
+        g=((a_1,a_2),((B_1,b_1),(B_2,b_2)),((C_1,c_1),(C_2,c_2)))\in \bar{G}
+\end{align}\]</div>
+<p>and a point <span class="math notranslate nohighlight">\(\P \in M\)</span> in the manifold, we consider the following left action</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+        \begin{split}
+        \psi_g(P) = [y+a_1, \;\;v+a_2,\;\; &amp;B_1R_1,\;\;  \Omega_1 + b_1,\;\; B_2R_2,\;\; \Omega_2 + b_2,\;\;\\ &amp;C_1q_1,\;\;C_1\omega_1 + c_1\times C_1q_1,\;\; C_2q_2,\;\;C_2\omega_2 + c_2\times C_2q_2].
+        \end{split}
+\end{align}\end{split}\]</div>
+<p>The infinitesimal generator associated to</p>
+<div class="math notranslate nohighlight">
+\[\begin{align}
+        \xi = \left[\xi_1 ,\;\; \xi_2,\;\; \eta_1 ,\;\; \eta_2 ,\;\; \eta_3 ,\;\; \eta_4 ,\;\; \mu_1 ,\;\; \mu_2 ,\;\; \mu_3 ,\;\; \mu_4 \right]\in \mathfrak{\bar{g}},
+\end{align}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathfrak{\bar{g}}=T_e\bar{G}\)</span>, writes</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+        \begin{split}
+        \infgen(\xi)\vert_P = [\xi_1,\;\; \xi_2, \;\; \hat{\eta}_1R_1,\;\; \eta_2,\;\; &amp;\hat{\eta}_3R_2,\;\;  \eta_4,\;\;\\
+        &amp; \hat{\mu}_1q_1,\;\; \hat{\mu}_1\omega_1 + \hat{\mu}_2q_1, \;\; \hat{\mu}_3q_2,\;\; \hat{\mu}_3\omega_2 + \hat{\mu}_4q_2 ].
+        \end{split}
+\end{align}\end{split}\]</div>
+<p>We can now focus on the construction of the function <span class="math notranslate nohighlight">\(f:M\rightarrow \bar{\mathfrak{g}}\)</span> such that <span class="math notranslate nohighlight">\(\infgen(f(P))\vert_P=F\vert_P\)</span>, where</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+        \begin{split}
+        F\vert_P = [\bar{h}_1(P), \;\; \bar{h}_2(P), \;\; R_1&amp;\hat{\Omega}_1,\;\; \bar{h}_3(P), \;\;  R_2\hat{\Omega}_2,\;\;\\
+        &amp;\bar{h}_4(P), \;\; \hat{\omega}_1q_1, \;\; \bar{h}_5(P),\;\; \hat{\omega}_2q_2, \;\; \bar{h}_6(P)]\in T_{P}M
+        \end{split}
+\end{align}\end{split}\]</div>
+<p>is the vector field obtained combining the kinematic and dynamic equations of motion. We have</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+        \begin{split}
+        f(P) = [\bar{h}_1(P),\;\; \bar{h}_2(P),\;\; R_1\Omega_1,\;\;&amp;\bar{h}_3(P),\;\; R_2\Omega_2,\;\;\bar{h}_4(P),\\
+        \;\;&amp;\omega_1,\;\; q_1\times \bar{h}_5(P),\;\;\omega_2,\;\; q_2\times \bar{h}_6(P)]\in\bar{\mathfrak{g}}.
+        \end{split}
+\end{align}\end{split}\]</div>
+</section>
 </section>
 
 
@@ -114,7 +167,10 @@ These equations, coupled with the kinematic equations, describe the dynamics of 
 <h3>Navigation</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Dynamics of two quadrotors transporting a mass point</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Dynamics of two quadrotors transporting a mass point</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#analysis-via-transitive-group-action">Analysis via transitive group action</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="int.html">RKMK and Commutator free Lie group methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matlab.html">MATLAB code</a></li>
 </ul>

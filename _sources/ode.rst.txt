@@ -11,9 +11,9 @@ We introduce an inertial frame whose third axis goes in the direction of gravity
 
 .. math::
 
-\begin{align}
-Q=\mathbb{R}^3\times (SO(3))^2 \times (S^2)^2.
-\end{align}
+	\begin{align}
+		Q=\mathbb{R}^3\times (SO(3))^2 \times (S^2)^2.
+	\end{align}
 
 In order to write the equations of motion of the system, we identify :math:`TSO(3)\simeq SO(3)\times \mathfrak{so}(3)` via left-trivialization. This choice allows us to write the kinematic equations of the system as 
 
@@ -90,4 +90,83 @@ Since the matrix :math:`A(z)` is invertible, we pass to the following set of equ
    	\begin{align}
 		\dot{z} = A^{-1}(z)h(z):=\Tilde{h}(z) :=\bar{h}(P) = [\bar{h}_1(P),...,\bar{h}_7(P)]^T.
 	\end{align}
+	
+.. _elec_ibvp:
+
+Analysis via transitive group action
+------------------------------------
+
+In this section we show how to obtain the local representation of the vector field :math:`F\in\mathfrak{X}(M)` in terms of the infinitesimal generator of the transitive group action :math:`\psi`. We start by identifying the phase space :math:`M` with 
+
+.. math::
+
+	\begin{align}
+		M\simeq T\mathbb{R}^3\times (TSO(3))^2 \times (TS^2)^2.
+	\end{align}
+
+The group we consider is
+
+.. math::
+
+	\begin{align}
+		\bar{G} = \mathbb{R}^6 \times (TSO(3))^2 \times (SE(3))^2,
+	\end{align}
+
+where the groups are combined with a direct-product structure and :math:`\mathbb{R}^6` is the additive group. For a group element
+
+.. math::
+
+	\begin{align}
+		g=((a_1,a_2),((B_1,b_1),(B_2,b_2)),((C_1,c_1),(C_2,c_2)))\in \bar{G}
+	\end{align}
+
+and a point :math:`\P \in M` in the manifold, we consider the following left action
+
+.. math::
+
+	\begin{align}
+		\begin{split}
+		\psi_g(P) = [y+a_1, \;\;v+a_2,\;\; &B_1R_1,\;\;  \Omega_1 + b_1,\;\; B_2R_2,\;\; \Omega_2 + b_2,\;\;\\ &C_1q_1,\;\;C_1\omega_1 + c_1\times C_1q_1,\;\; C_2q_2,\;\;C_2\omega_2 + c_2\times C_2q_2].
+		\end{split}
+	\end{align}
+
+The infinitesimal generator associated to 
+
+.. math::
+
+	\begin{align}
+		\xi = \left[\xi_1 ,\;\; \xi_2,\;\; \eta_1 ,\;\; \eta_2 ,\;\; \eta_3 ,\;\; \eta_4 ,\;\; \mu_1 ,\;\; \mu_2 ,\;\; \mu_3 ,\;\; \mu_4 \right]\in \mathfrak{\bar{g}},
+	\end{align}
+
+where :math:`\mathfrak{\bar{g}}=T_e\bar{G}`, writes
+
+.. math::
+
+	\begin{align}
+		\begin{split}
+		\infgen(\xi)\vert_P = [\xi_1,\;\; \xi_2, \;\; \hat{\eta}_1R_1,\;\; \eta_2,\;\; &\hat{\eta}_3R_2,\;\;  \eta_4,\;\;\\ 
+		& \hat{\mu}_1q_1,\;\; \hat{\mu}_1\omega_1 + \hat{\mu}_2q_1, \;\; \hat{\mu}_3q_2,\;\; \hat{\mu}_3\omega_2 + \hat{\mu}_4q_2 ].
+		\end{split}
+	\end{align}
+We can now focus on the construction of the function :math:`f:M\rightarrow \bar{\mathfrak{g}}` such that :math:`\infgen(f(P))\vert_P=F\vert_P`, where
+
+.. math::
+
+	\begin{align}
+		\begin{split}
+		F\vert_P = [\bar{h}_1(P), \;\; \bar{h}_2(P), \;\; R_1&\hat{\Omega}_1,\;\; \bar{h}_3(P), \;\;  R_2\hat{\Omega}_2,\;\;\\  
+		&\bar{h}_4(P), \;\; \hat{\omega}_1q_1, \;\; \bar{h}_5(P),\;\; \hat{\omega}_2q_2, \;\; \bar{h}_6(P)]\in T_{P}M
+		\end{split}
+	\end{align}
+is the vector field obtained combining the kinematic and dynamic equations of motion. We have
+
+.. math::
+
+	\begin{align}
+		\begin{split}
+		f(P) = [\bar{h}_1(P),\;\; \bar{h}_2(P),\;\; R_1\Omega_1,\;\;&\bar{h}_3(P),\;\; R_2\Omega_2,\;\;\bar{h}_4(P),\\ 
+		\;\;&\omega_1,\;\; q_1\times \bar{h}_5(P),\;\;\omega_2,\;\; q_2\times \bar{h}_6(P)]\in\bar{\mathfrak{g}}.
+		\end{split}
+	\end{align}
+
 
