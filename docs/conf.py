@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'variable_stepsize_lie_group_integrator'
+project = 'RKMK_Commutator_free_integrators'
 copyright = '2022, Ergys Çokaj, Andrea Leone, Davide Murari'
 author = 'Ergys Çokaj, Andrea Leone, Davide Murari'
 
