@@ -19,7 +19,7 @@ R2 = sol(:,7:9);
 detR1(i+1) = det(R1);
 detR2(i+1) = det(R2);
 
-rctime=control(m1,m2,my,L1,L2,J1,J2,sol,d_trajectory(t));
+rctime=controls(m1,m2,my,L1,L2,J1,J2,sol,d_trajectory(t));
 
 q1dplot(:,i) = rctime(:,1);
 q2dplot(:,i) = rctime(:,2);
