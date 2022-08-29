@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Dynamics of two quadrotors transporting a mass point &#8212; RKMK_Commutator_free_integrators 0.1 documentation</title>
+    <title>Example &#8212; RKMK_Commutator_free_integrators 0.1 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -35,8 +35,10 @@
 
           <div class="body" role="main">
             
-  <section id="dynamics-of-two-quadrotors-transporting-a-mass-point">
-<span id="ode"></span><h1>Dynamics of two quadrotors transporting a mass point<a class="headerlink" href="#dynamics-of-two-quadrotors-transporting-a-mass-point" title="Permalink to this heading">¶</a></h1>
+  <section id="example">
+<span id="ode"></span><h1>Example<a class="headerlink" href="#example" title="Permalink to this heading">¶</a></h1>
+<section id="problem-description">
+<span id="elec-ibvp"></span><h2>Problem description<a class="headerlink" href="#problem-description" title="Permalink to this heading">¶</a></h2>
 <p>We consider a multibody system made of two cooperating quadrotor unmanned aerial vehicles (UAV) connected to a point mass (suspended load) via rigid links. This model is described in <a class="reference external" href="https://dx.doi.org/10.1109/CDC.2013.6760757">(Lee, Sreenath, Kumar, 2013)</a>.</p>
 <p>We introduce an inertial frame whose third axis goes in the direction of gravity, but opposite orientation, and we denote with <span class="math notranslate nohighlight">\(y\in\mathbb{R}^3\)</span> the mass point and with <span class="math notranslate nohighlight">\(y_1,y_2\in\mathbb{R}^3\)</span> the two quadrotors. We assume that the links between the two quadrotors and the mass point are of a fixed length <span class="math notranslate nohighlight">\(L_1, L_2\in\mathbb{R}^+\)</span>. The configuration variables of the system are: the position of the mass point in the inertial frame, <span class="math notranslate nohighlight">\(y\in \mathbb{R}^3\)</span>, the attitude matrices of the two quadrotors, <span class="math notranslate nohighlight">\((R_1, R_2)\in (SO(3))^2\)</span> and the directions of the links which connect the center of mass of each quadrotor respectively with the mass point, <span class="math notranslate nohighlight">\((q_1,q_2)\in (S^2)^2\)</span>. The configuration manifold of the system is</p>
 <div class="math notranslate nohighlight">
@@ -93,8 +95,9 @@ These equations, coupled with the kinematic equations, describe the dynamics of 
         \dot{z} = A^{-1}(z)h(z):=\tilde{h}(z) :=\bar{h}(P) = [\bar{h}_1(P),...,\bar{h}_7(P)]^T.
 \end{align}\]</div>
 <p>We highlight that the inputs <span class="math notranslate nohighlight">\(\{u_i^{\parallel},u_i^{\perp},M_i\}_{i=1,2}\)</span> act as controls. They are constructed such that the point mass asymptotically follows a given desired trajectory <span class="math notranslate nohighlight">\(y_d \in \mathbb{R}^3\)</span>, given by a smooth function of time, and the quadrotors maintain a prescribed formation relative to the point mass. In particular, the parallel components <span class="math notranslate nohighlight">\(u_i^{\parallel}\)</span> are designed such that the payload follows the desired trajectory <span class="math notranslate nohighlight">\(y_d\)</span> (load transportation problem), while the normal components <span class="math notranslate nohighlight">\(u_i^{\perp}\)</span> are designed such that <span class="math notranslate nohighlight">\(q_i\)</span> converge to desired directions <span class="math notranslate nohighlight">\(q_{id}\)</span> (tracking problem in <span class="math notranslate nohighlight">\(S_2\)</span>). Finally, <span class="math notranslate nohighlight">\(M_i\)</span> are designed to control the attitude of the quadrotors.</p>
+</section>
 <section id="analysis-via-transitive-group-action">
-<span id="elec-ibvp"></span><h2>Analysis via transitive group action<a class="headerlink" href="#analysis-via-transitive-group-action" title="Permalink to this heading">¶</a></h2>
+<span id="id1"></span><h2>Analysis via transitive group action<a class="headerlink" href="#analysis-via-transitive-group-action" title="Permalink to this heading">¶</a></h2>
 <p>In this section we show how to obtain the local representation of the vector field <span class="math notranslate nohighlight">\(F\in\mathfrak{X}(M)\)</span> in terms of the infinitesimal generator of a transitive group action <span class="math notranslate nohighlight">\(\psi\)</span>. We start by identifying the phase space <span class="math notranslate nohighlight">\(M\)</span> with</p>
 <div class="math notranslate nohighlight">
 \[\begin{align}
@@ -167,7 +170,8 @@ These equations, coupled with the kinematic equations, describe the dynamics of 
 
 <h3>Navigation</h3>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Dynamics of two quadrotors transporting a mass point</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#problem-description">Problem description</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#analysis-via-transitive-group-action">Analysis via transitive group action</a></li>
 </ul>
 </li>
