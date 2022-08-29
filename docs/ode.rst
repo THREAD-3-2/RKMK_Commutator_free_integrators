@@ -1,9 +1,13 @@
 .. _ode:
 
-====================================================
-Dynamics of two quadrotors transporting a mass point
-====================================================
+========
+Example
+========
 
+.. _elec_ibvp:
+
+Problem description
+-------------------
 
 We consider a multibody system made of two cooperating quadrotor unmanned aerial vehicles (UAV) connected to a point mass (suspended load) via rigid links. This model is described in `(Lee, Sreenath, Kumar, 2013) <https://dx.doi.org/10.1109/CDC.2013.6760757>`_.
 
