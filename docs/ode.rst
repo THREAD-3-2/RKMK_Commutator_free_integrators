@@ -11,7 +11,7 @@ Problem description
 
 We consider a multibody system made of two cooperating quadrotor unmanned aerial vehicles (UAV) connected to a point mass (suspended load) via rigid links. This model is described in `(Lee, Sreenath, Kumar, 2013) <https://dx.doi.org/10.1109/CDC.2013.6760757>`_.
 
-We introduce an inertial frame whose third axis goes in the direction of gravity, but opposite orientation, and we attach body-fixed frames to each quadrotor (with the origins located respectively at the center of mass of each quadrotor). We denote with :math:`y,y_1,y_2\in\mathbb{R}^3` the location, respectively, of the mass point and the center of mass of each quadrotor withrespect to the intertial frame. We assume that the links between the two quadrotors and the mass point are of a fixed length :math:`L_1, L_2\in\mathbb{R}^+`. The configuration variables of the system are: the position of the mass point in the inertial frame, :math:`y\in \mathbb{R}^3`, the attitude matrices of the two quadrotors, :math:`(R_1, R_2)\in (SO(3))^2` and the directions of the links which connect the center of mass of each quadrotor respectively with the mass point, :math:`(q_1,q_2)\in (S^2)^2`. The configuration manifold of the system is 
+We introduce an inertial frame whose third axis goes in the direction of gravity, but opposite orientation, and we attach body-fixed frames to each quadrotor (with the origins located respectively at the center of mass of each quadrotor). We denote with :math:`y,y_1,y_2\in\mathbb{R}^3` the locations, respectively, of the mass point and the center of mass of each quadrotor with respect to the intertial frame. We assume that the links between the two quadrotors and the mass point are of a fixed length :math:`L_1, L_2\in\mathbb{R}^+`. The configuration variables of the system are: the position of the mass point in the inertial frame, :math:`y\in \mathbb{R}^3`, the attitude matrices of the two quadrotors, :math:`(R_1, R_2)\in (SO(3))^2` and the directions of the links which connect the center of mass of each quadrotor respectively with the mass point, :math:`(q_1,q_2)\in (S^2)^2`. The configuration manifold of the system is 
 
 .. math::   
 
@@ -24,10 +24,10 @@ In order to write the equations of motion of the system, we identify :math:`TSO(
 .. math::
 
 	\begin{align}
-		\dot{R}_i = R_i\hat{\Omega}_i,\quad \dot{q}_i = \hat{\omega}_iq_i\quad \quad i=1,2,
+		\dot{R}_i = R_i\hat{\Omega}_i,\quad \dot{q}_i = \hat{\omega}_iq_i,\quad \quad i=1,2,
 	\end{align}
 
-where :math:`\Omega_1,\Omega_2\in\mathbb{R}^3` represent the angular velocities of each quadrotor expressed with respect to its body-fixed frame, and :math:`\omega_1,\omega_2` are the angular velocities of the links :math:`q_1,q_2\in S^2`, satisfying :math:`q_i\cdot\omega_i=0,\;i=1,2`. The `(hat map) <https://github.com/THREAD-3-2/RKMK_Commutator_free_integrators/blob/main/src/lie_group_functions/hat.m>`_ 
+where :math:`\Omega_1,\Omega_2\in\mathbb{R}^3` represent the angular velocities of each quadrotor expressed with respect to its body-fixed frame, and :math:`\omega_1,\omega_2` are the angular velocities of the links :math:`q_1,q_2\in S^2`, satisfying :math:`q_i\cdot\omega_i=0\;(i=1,2)`. The `hat map <https://github.com/THREAD-3-2/RKMK_Commutator_free_integrators/blob/main/src/lie_group_functions/hat.m>`_ 
 
 .. math::
    \hat{\cdot}:\mathbb{R}^3\rightarrow  \mathfrak{so}(3),\qquad
@@ -37,13 +37,13 @@ where :math:`\Omega_1,\Omega_2\in\mathbb{R}^3` represent the angular velocities 
             \xi_2 \\
             \xi_3
             \end{array}\right] \rightarrow
-            \hat{xi}=\left[\begin{array}{ccc}
+            \hat{\xi}=\left[\begin{array}{ccc}
             0 & -\xi_3 & \xi_2 \\
             \xi_3 & 0 & -\xi_1 \\
             -\xi_2 & \xi_1 & 0
             \end{array}\right]\, 
     \end{align}
-is such that :math:`hat{a}b=a\timesb` for all :math:`a,\,b\in \mathbb{R}^3`. This allows us to identify elements of the lie algebra :math:`\mathfrak{so}(3)`, modelled as :math:`3\times3` skew symmetric matrices, with vectors in :math:`\mathbb{R}^3`.
+is such that :math:`\hat{a}b=a\times b` for all :math:`a,\,b\in \mathbb{R}^3`. This allows us to identify elements of the lie algebra :math:`\mathfrak{so}(3)`, modelled as :math:`3\times3` skew symmetric matrices, with vectors in :math:`\mathbb{R}^3`.
 
 We define the trivialized Lagrangian 
 
