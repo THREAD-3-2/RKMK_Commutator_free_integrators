@@ -103,21 +103,21 @@
 These equations, coupled with the kinematic equations, describe the dynamics of a point</p>
 <div class="math notranslate nohighlight">
 \[\begin{align}
-        P = \left[y ,\;\; v,\;\; R_1 ,\;\; \Omega_1 ,\;\; R_2 ,\;\; \Omega_2 ,\;\; q_1 ,\;\; \omega_1  ,\;\; q_2 ,\;\; \omega_2 \right] \in M = TQ.
+        P = \left[y ,\;\; v,\;\; R_1 ,\;\; \Omega_1 ,\;\; R_2 ,\;\; \Omega_2 ,\;\; q_1 ,\;\; \omega_1  ,\;\; q_2 ,\;\; \omega_2 \right] \in \mathcal{M} = TQ.
 \end{align}\]</div>
 <p>Since the matrix <span class="math notranslate nohighlight">\(A(z)\)</span> is invertible, we pass to the following set of equations</p>
 <div class="math notranslate nohighlight">
 \[\begin{align}
-        \dot{z} = A^{-1}(z)h(z):=\tilde{h}(z) :=\bar{h}(P) = [\bar{h}_1(P),...,\bar{h}_7(P)]^T.
+        \dot{z} = A^{-1}(z)h(z):=\tilde{h}(z) :=\bar{h}(P) = [\bar{h}_1(P),...,\bar{h}_6(P)]^T.
 \end{align}\]</div>
 <p>We highlight that the inputs <span class="math notranslate nohighlight">\(\{u_i^{\parallel},u_i^{\perp},M_i\}_{i=1,2}\)</span> act as controls. They are constructed such that the point mass asymptotically follows a given desired trajectory <span class="math notranslate nohighlight">\(y_d \in \mathbb{R}^3\)</span>, given by a smooth function of time, and the quadrotors maintain a prescribed formation relative to the point mass. In particular, the parallel components <span class="math notranslate nohighlight">\(u_i^{\parallel}\)</span> are designed such that the payload follows the desired trajectory <span class="math notranslate nohighlight">\(y_d\)</span> (load transportation problem), while the normal components <span class="math notranslate nohighlight">\(u_i^{\perp}\)</span> are designed such that <span class="math notranslate nohighlight">\(q_i\)</span> converge to desired directions <span class="math notranslate nohighlight">\(q_{id}\)</span> (tracking problem in <span class="math notranslate nohighlight">\(S_2\)</span>). Finally, <span class="math notranslate nohighlight">\(M_i\)</span> are designed to control the attitude of the quadrotors.</p>
 </section>
 <section id="analysis-via-transitive-group-action">
 <span id="id1"></span><h2>Analysis via transitive group action<a class="headerlink" href="#analysis-via-transitive-group-action" title="Permalink to this heading">¶</a></h2>
-<p>In this section we show how to obtain the local representation of the vector field <span class="math notranslate nohighlight">\(F\in\mathfrak{X}(M)\)</span> in terms of the infinitesimal generator of a transitive group action <span class="math notranslate nohighlight">\(\psi\)</span>. We start by identifying the phase space <span class="math notranslate nohighlight">\(M\)</span> with</p>
+<p>In this section we show how to obtain the local representation of the vector field <span class="math notranslate nohighlight">\(F\in\mathfrak{X}(\mathcal{M})\)</span> of the system presented un the previous section, in terms of the infinitesimal generator of a transitive group action <span class="math notranslate nohighlight">\(\psi\)</span>. We start by identifying the phase space <span class="math notranslate nohighlight">\(\mathcal{M}\)</span> with</p>
 <div class="math notranslate nohighlight">
 \[\begin{align}
-        M\simeq T\mathbb{R}^3\times (TSO(3))^2 \times (TS^2)^2.
+        \mathcal{M}\simeq T\mathbb{R}^3\times (TSO(3))^2 \times (TS^2)^2.
 \end{align}\]</div>
 <p>The group we consider is</p>
 <div class="math notranslate nohighlight">
@@ -129,14 +129,14 @@ These equations, coupled with the kinematic equations, describe the dynamics of 
 \[\begin{align}
         g=((a_1,a_2),((B_1,b_1),(B_2,b_2)),((C_1,c_1),(C_2,c_2)))\in \bar{G}
 \end{align}\]</div>
-<p>and a point <span class="math notranslate nohighlight">\(P \in M\)</span> in the manifold, we consider the following left action</p>
+<p>and a point <span class="math notranslate nohighlight">\(P \in \mathcal{M}\)</span> in the manifold, we consider the following left action</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
         \begin{split}
         \psi_g(P) = [y+a_1, \;\;v+a_2,\;\; &amp;B_1R_1,\;\;  \Omega_1 + b_1,\;\; B_2R_2,\;\; \Omega_2 + b_2,\;\;\\ &amp;C_1q_1,\;\;C_1\omega_1 + c_1\times C_1q_1,\;\; C_2q_2,\;\;C_2\omega_2 + c_2\times C_2q_2].
         \end{split}
 \end{align}\end{split}\]</div>
-<p>It can be proved that this is a well-defined and transitive action of <span class="math notranslate nohighlight">\(\bar{G}\)</span> on <span class="math notranslate nohighlight">\(M\)</span>. The infinitesimal generator associated to</p>
+<p>It can be proved that this is a well-defined and transitive action of <span class="math notranslate nohighlight">\(\bar{G}\)</span> on <span class="math notranslate nohighlight">\(\mathcal{M}\)</span>. The infinitesimal generator associated to</p>
 <div class="math notranslate nohighlight">
 \[\begin{align}
         \xi = \left[\xi_1 ,\;\; \xi_2,\;\; \eta_1 ,\;\; \eta_2 ,\;\; \eta_3 ,\;\; \eta_4 ,\;\; \mu_1 ,\;\; \mu_2 ,\;\; \mu_3 ,\;\; \mu_4 \right]\in \mathfrak{\bar{g}},
@@ -149,12 +149,12 @@ These equations, coupled with the kinematic equations, describe the dynamics of 
         &amp; \hat{\mu}_1q_1,\;\; \hat{\mu}_1\omega_1 + \hat{\mu}_2q_1, \;\; \hat{\mu}_3q_2,\;\; \hat{\mu}_3\omega_2 + \hat{\mu}_4q_2 ].
         \end{split}
 \end{align}\end{split}\]</div>
-<p>We can now construct the function <span class="math notranslate nohighlight">\(f:M\rightarrow \bar{\mathfrak{g}}\)</span> such that <span class="math notranslate nohighlight">\(\psi_{*}(f(P))\vert_P=F\vert_P\)</span>, where</p>
+<p>We can now construct the function <span class="math notranslate nohighlight">\(f:\mathcal{M}\rightarrow \bar{\mathfrak{g}}\)</span> such that <span class="math notranslate nohighlight">\(\psi_{*}(f(P))\vert_P=F\vert_P\)</span>, where</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
         \begin{split}
         F\vert_P = [\bar{h}_1(P), \;\; \bar{h}_2(P), \;\; R_1&amp;\hat{\Omega}_1,\;\; \bar{h}_3(P), \;\;  R_2\hat{\Omega}_2,\;\;\\
-        &amp;\bar{h}_4(P), \;\; \hat{\omega}_1q_1, \;\; \bar{h}_5(P),\;\; \hat{\omega}_2q_2, \;\; \bar{h}_6(P)]\in T_{P}M
+        &amp;\bar{h}_4(P), \;\; \hat{\omega}_1q_1, \;\; \bar{h}_5(P),\;\; \hat{\omega}_2q_2, \;\; \bar{h}_6(P)]\in T_{P}\mathcal{M}
         \end{split}
 \end{align}\end{split}\]</div>
 <p>is the vector field obtained combining the kinematic and dynamic equations of motion. We have</p>
