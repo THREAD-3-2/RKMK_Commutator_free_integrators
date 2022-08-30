@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>RKMK and Commutator free Lie group methods &#8212; RKMK_Commutator_free_integrators 0.1 documentation</title>
+    <title>Algorithms &#8212; RKMK_Commutator_free_integrators 0.1 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -35,8 +35,10 @@
 
           <div class="body" role="main">
             
-  <section id="rkmk-and-commutator-free-lie-group-methods">
-<span id="int"></span><h1>RKMK and Commutator free Lie group methods<a class="headerlink" href="#rkmk-and-commutator-free-lie-group-methods" title="Permalink to this heading">¶</a></h1>
+  <section id="algorithms">
+<span id="int"></span><h1>Algorithms<a class="headerlink" href="#algorithms" title="Permalink to this heading">¶</a></h1>
+<section id="runge-kutta-munthe-kaas-methods">
+<span id="elec-ibvp"></span><h2>Runge-Kutta-Munthe-Kaas methods<a class="headerlink" href="#runge-kutta-munthe-kaas-methods" title="Permalink to this heading">¶</a></h2>
 <p>Lie group integrators solve differential equations whose solution evolve on a manifold <span class="math notranslate nohighlight">\(\mathcal{M}\)</span>, i.e. the solution is a curve <span class="math notranslate nohighlight">\(y(t)\in\mathcal{M}\)</span> whose tangent at any point coincides with a vector field <span class="math notranslate nohighlight">\(F\in\mathcal{X}(\mathcal{M})\)</span> and passes through a designated initial value <span class="math notranslate nohighlight">\(y_0\)</span> at <span class="math notranslate nohighlight">\(t=t_0\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\begin{align}
@@ -63,6 +65,9 @@
     \textrm{dexp}_u^{-1}(v) =\left.\frac{z}{e^z-1}\right|_{z=\textrm{ad}_u}(v)= v -\frac12[u,v] + \frac1{12}[u,[u,v]]+\cdots.
 \end{align}\]</div>
 <p>To evaluate <span class="math notranslate nohighlight">\(\textrm{dexp}_u^{-1}(v)\)</span> one can either truncate the series <a class="reference internal" href="#eq-2"><span class="std std-ref">(3)</span></a>, or compute its exact expression for the particular Lie algebra under consideration.</p>
+</section>
+<section id="commutator-free-methods">
+<span id="id1"></span><h2>Commutator-free methods<a class="headerlink" href="#commutator-free-methods" title="Permalink to this heading">¶</a></h2>
 <p>The second class of Lie group integrators to be considered here are the commutator-free methods, named this way to emphasize the contrast to RKMK schemes which usually include commutators in the method format. These schemes include the Crouch-Grossman methods and have the format</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
@@ -72,6 +77,7 @@
 \end{align}\end{split}\]</div>
 <p>Here the Runge-Kutta coefficients <span class="math notranslate nohighlight">\(\alpha_{r,j}^k\)</span>, <span class="math notranslate nohighlight">\(\beta_{j}^r\)</span> are related to a classical Runge-Kutta scheme with coefficients <span class="math notranslate nohighlight">\(a_r^k\)</span>, <span class="math notranslate nohighlight">\(b_r\)</span> in that <span class="math notranslate nohighlight">\(a_r^k=\sum_j \alpha_{r,j}^k\)</span> and <span class="math notranslate nohighlight">\(b_r=\sum_j \beta_{j}^r\)</span>. The <span class="math notranslate nohighlight">\(\alpha_{r,j}^k\)</span>, <span class="math notranslate nohighlight">\(\beta_{j}^r\)</span> are usually chosen to obtain computationally inexpensive schemes with the highest possible order of convergence. The computational complexity of the above schemes depends on the cost of computing an exponential as well as of evaluating the vector field. Therefore it makes sense to keep the number of exponentials <span class="math notranslate nohighlight">\(J\)</span> in each stage as low as possible, and possibly also the number of stages <span class="math notranslate nohighlight">\(s\)</span>.</p>
 <p>We refer to <a class="reference external" href="https://doi.org/10.1080/00207160.2021.1966772">(Celledoni, Çokaj, Leone, Murari and Owren, 2021)</a> and references therein for further details.</p>
+</section>
 </section>
 
 
@@ -93,7 +99,11 @@
 <h3>Navigation</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="ode.html">Example</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">RKMK and Commutator free Lie group methods</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Algorithms</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#runge-kutta-munthe-kaas-methods">Runge-Kutta-Munthe-Kaas methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#commutator-free-methods">Commutator-free methods</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="matlab.html">MATLAB code</a></li>
 </ul>
 
