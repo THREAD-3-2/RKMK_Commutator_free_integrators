@@ -103,14 +103,14 @@ These equations, coupled with the kinematic equations, describe the dynamics of 
 .. math::
 
    	\begin{align}
-		P = \left[y ,\;\; v,\;\; R_1 ,\;\; \Omega_1 ,\;\; R_2 ,\;\; \Omega_2 ,\;\; q_1 ,\;\; \omega_1  ,\;\; q_2 ,\;\; \omega_2 \right] \in M = TQ.
+		P = \left[y ,\;\; v,\;\; R_1 ,\;\; \Omega_1 ,\;\; R_2 ,\;\; \Omega_2 ,\;\; q_1 ,\;\; \omega_1  ,\;\; q_2 ,\;\; \omega_2 \right] \in \mathcal{M} = TQ.
 	\end{align}
 Since the matrix :math:`A(z)` is invertible, we pass to the following set of equations
 
 .. math::
 
    	\begin{align}
-		\dot{z} = A^{-1}(z)h(z):=\tilde{h}(z) :=\bar{h}(P) = [\bar{h}_1(P),...,\bar{h}_7(P)]^T.
+		\dot{z} = A^{-1}(z)h(z):=\tilde{h}(z) :=\bar{h}(P) = [\bar{h}_1(P),...,\bar{h}_6(P)]^T.
 	\end{align}
 	
 We highlight that the inputs :math:`\{u_i^{\parallel},u_i^{\perp},M_i\}_{i=1,2}` act as controls. They are constructed such that the point mass asymptotically follows a given desired trajectory :math:`y_d \in \mathbb{R}^3`, given by a smooth function of time, and the quadrotors maintain a prescribed formation relative to the point mass. In particular, the parallel components :math:`u_i^{\parallel}` are designed such that the payload follows the desired trajectory :math:`y_d` (load transportation problem), while the normal components :math:`u_i^{\perp}` are designed such that :math:`q_i` converge to desired directions :math:`q_{id}` (tracking problem in :math:`S_2`). Finally, :math:`M_i` are designed to control the attitude of the quadrotors.
@@ -120,12 +120,12 @@ We highlight that the inputs :math:`\{u_i^{\parallel},u_i^{\perp},M_i\}_{i=1,2}`
 Analysis via transitive group action
 ------------------------------------
 
-In this section we show how to obtain the local representation of the vector field :math:`F\in\mathfrak{X}(M)` in terms of the infinitesimal generator of a transitive group action :math:`\psi`. We start by identifying the phase space :math:`M` with 
+In this section we show how to obtain the local representation of the vector field :math:`F\in\mathfrak{X}(\mathcal{M})` of the system presented un the previous section, in terms of the infinitesimal generator of a transitive group action :math:`\psi`. We start by identifying the phase space :math:`\mathcal{M}` with 
 
 .. math::
 
 	\begin{align}
-		M\simeq T\mathbb{R}^3\times (TSO(3))^2 \times (TS^2)^2.
+		\mathcal{M}\simeq T\mathbb{R}^3\times (TSO(3))^2 \times (TS^2)^2.
 	\end{align}
 
 The group we consider is
@@ -144,7 +144,7 @@ where the groups are combined with a direct-product structure and :math:`\mathbb
 		g=((a_1,a_2),((B_1,b_1),(B_2,b_2)),((C_1,c_1),(C_2,c_2)))\in \bar{G}
 	\end{align}
 
-and a point :math:`P \in M` in the manifold, we consider the following left action
+and a point :math:`P \in \mathcal{M}` in the manifold, we consider the following left action
 
 .. math::
 
@@ -154,7 +154,7 @@ and a point :math:`P \in M` in the manifold, we consider the following left acti
 		\end{split}
 	\end{align}
 
-It can be proved that this is a well-defined and transitive action of :math:`\bar{G}` on :math:`M`. The infinitesimal generator associated to 
+It can be proved that this is a well-defined and transitive action of :math:`\bar{G}` on :math:`\mathcal{M}`. The infinitesimal generator associated to 
 
 .. math::
 
@@ -173,14 +173,14 @@ where :math:`\mathfrak{\bar{g}}=T_e\bar{G}`, writes
 		\end{split}
 	\end{align}
 	
-We can now construct the function :math:`f:M\rightarrow \bar{\mathfrak{g}}` such that :math:`\psi_{*}(f(P))\vert_P=F\vert_P`, where
+We can now construct the function :math:`f:\mathcal{M}\rightarrow \bar{\mathfrak{g}}` such that :math:`\psi_{*}(f(P))\vert_P=F\vert_P`, where
 
 .. math::
 
 	\begin{align}
 		\begin{split}
 		F\vert_P = [\bar{h}_1(P), \;\; \bar{h}_2(P), \;\; R_1&\hat{\Omega}_1,\;\; \bar{h}_3(P), \;\;  R_2\hat{\Omega}_2,\;\;\\  
-		&\bar{h}_4(P), \;\; \hat{\omega}_1q_1, \;\; \bar{h}_5(P),\;\; \hat{\omega}_2q_2, \;\; \bar{h}_6(P)]\in T_{P}M
+		&\bar{h}_4(P), \;\; \hat{\omega}_1q_1, \;\; \bar{h}_5(P),\;\; \hat{\omega}_2q_2, \;\; \bar{h}_6(P)]\in T_{P}\mathcal{M}
 		\end{split}
 	\end{align}
 is the vector field obtained combining the kinematic and dynamic equations of motion. We have
