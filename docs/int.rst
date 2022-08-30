@@ -1,8 +1,13 @@
 .. _int:
 
-==========================================
-RKMK and Commutator free Lie group methods
-==========================================
+===========
+Algorithms
+===========
+
+.. _elec_ibvp:
+
+Runge-Kutta-Munthe-Kaas methods
+-------------------------------
 
 Lie group integrators solve differential equations whose solution evolve on a manifold :math:`\mathcal{M}`, i.e. the solution is a curve :math:`y(t)\in\mathcal{M}` whose tangent at any point coincides with a vector field :math:`F\in\mathcal{X}(\mathcal{M})` and passes through a designated initial value :math:`y_0` at :math:`t=t_0`:
 
@@ -47,6 +52,11 @@ The inverse is
     \end{align}
 
 To evaluate :math:`\textrm{dexp}_u^{-1}(v)` one can either truncate the series :ref:`(3) <eq:2>`, or compute its exact expression for the particular Lie algebra under consideration.
+
+.. _elec_ibvp:
+
+Commutator-free methods
+-----------------------
 
 The second class of Lie group integrators to be considered here are the commutator-free methods, named this way to emphasize the contrast to RKMK schemes which usually include commutators in the method format. These schemes include the Crouch-Grossman methods and have the format
 
