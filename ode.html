@@ -40,7 +40,7 @@
 <section id="problem-description">
 <span id="elec-ibvp"></span><h2>Problem description<a class="headerlink" href="#problem-description" title="Permalink to this heading">¶</a></h2>
 <p>We consider a multibody system made of two cooperating quadrotor unmanned aerial vehicles (UAV) connected to a point mass (suspended load) via rigid links. This model is described in <a class="reference external" href="https://dx.doi.org/10.1109/CDC.2013.6760757">(Lee, Sreenath, Kumar, 2013)</a>.</p>
-<p>We introduce an inertial frame whose third axis goes in the direction of gravity, but opposite orientation, and we attach body-fixed frames to each quadrotor (with the origins located respectively at the center of mass of each quadrotor). We denote with <span class="math notranslate nohighlight">\(y,y_1,y_2\in\mathbb{R}^3\)</span> the location, respectively, of the mass point and the center of mass of each quadrotor withrespect to the intertial frame. We assume that the links between the two quadrotors and the mass point are of a fixed length <span class="math notranslate nohighlight">\(L_1, L_2\in\mathbb{R}^+\)</span>. The configuration variables of the system are: the position of the mass point in the inertial frame, <span class="math notranslate nohighlight">\(y\in \mathbb{R}^3\)</span>, the attitude matrices of the two quadrotors, <span class="math notranslate nohighlight">\((R_1, R_2)\in (SO(3))^2\)</span> and the directions of the links which connect the center of mass of each quadrotor respectively with the mass point, <span class="math notranslate nohighlight">\((q_1,q_2)\in (S^2)^2\)</span>. The configuration manifold of the system is</p>
+<p>We introduce an inertial frame whose third axis goes in the direction of gravity, but opposite orientation, and we attach body-fixed frames to each quadrotor (with the origins located respectively at the center of mass of each quadrotor). We denote with <span class="math notranslate nohighlight">\(y,y_1,y_2\in\mathbb{R}^3\)</span> the locations, respectively, of the mass point and the center of mass of each quadrotor with respect to the intertial frame. We assume that the links between the two quadrotors and the mass point are of a fixed length <span class="math notranslate nohighlight">\(L_1, L_2\in\mathbb{R}^+\)</span>. The configuration variables of the system are: the position of the mass point in the inertial frame, <span class="math notranslate nohighlight">\(y\in \mathbb{R}^3\)</span>, the attitude matrices of the two quadrotors, <span class="math notranslate nohighlight">\((R_1, R_2)\in (SO(3))^2\)</span> and the directions of the links which connect the center of mass of each quadrotor respectively with the mass point, <span class="math notranslate nohighlight">\((q_1,q_2)\in (S^2)^2\)</span>. The configuration manifold of the system is</p>
 <div class="math notranslate nohighlight">
 \[\begin{align}
         Q=\mathbb{R}^3\times (SO(3))^2 \times (S^2)^2.
@@ -48,9 +48,9 @@
 <p>In order to write the equations of motion of the system, we identify <span class="math notranslate nohighlight">\(TSO(3)\simeq SO(3)\times \mathfrak{so}(3)\)</span> via left-trivialization. This choice allows us to write the kinematic equations of the system as</p>
 <div class="math notranslate nohighlight">
 \[\begin{align}
-        \dot{R}_i = R_i\hat{\Omega}_i,\quad \dot{q}_i = \hat{\omega}_iq_i\quad \quad i=1,2,
+        \dot{R}_i = R_i\hat{\Omega}_i,\quad \dot{q}_i = \hat{\omega}_iq_i,\quad \quad i=1,2,
 \end{align}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\Omega_1,\Omega_2\in\mathbb{R}^3\)</span> represent the angular velocities of each quadrotor expressed with respect to its body-fixed frame, and <span class="math notranslate nohighlight">\(\omega_1,\omega_2\)</span> are the angular velocities of the links <span class="math notranslate nohighlight">\(q_1,q_2\in S^2\)</span>, satisfying <span class="math notranslate nohighlight">\(q_i\cdot\omega_i=0,\;i=1,2\)</span>. The <a class="reference external" href="https://github.com/THREAD-3-2/RKMK_Commutator_free_integrators/blob/main/src/lie_group_functions/hat.m">(hat map)</a></p>
+<p>where <span class="math notranslate nohighlight">\(\Omega_1,\Omega_2\in\mathbb{R}^3\)</span> represent the angular velocities of each quadrotor expressed with respect to its body-fixed frame, and <span class="math notranslate nohighlight">\(\omega_1,\omega_2\)</span> are the angular velocities of the links <span class="math notranslate nohighlight">\(q_1,q_2\in S^2\)</span>, satisfying <span class="math notranslate nohighlight">\(q_i\cdot\omega_i=0\;(i=1,2)\)</span>. The <a class="reference external" href="https://github.com/THREAD-3-2/RKMK_Commutator_free_integrators/blob/main/src/lie_group_functions/hat.m">hat map</a></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\hat{\cdot}:\mathbb{R}^3\rightarrow  \mathfrak{so}(3),\qquad
      \begin{align}
@@ -59,13 +59,13 @@
          \xi_2 \\
          \xi_3
          \end{array}\right] \rightarrow
-         \hat{xi}=\left[\begin{array}{ccc}
+         \hat{\xi}=\left[\begin{array}{ccc}
          0 &amp; -\xi_3 &amp; \xi_2 \\
          \xi_3 &amp; 0 &amp; -\xi_1 \\
          -\xi_2 &amp; \xi_1 &amp; 0
          \end{array}\right]\,
  \end{align}\end{split}\]</div>
-<p>is such that <span class="math notranslate nohighlight">\(hat{a}b=a\timesb\)</span> for all <span class="math notranslate nohighlight">\(a,\,b\in \mathbb{R}^3\)</span>. This allows us to identify elements of the lie algebra <span class="math notranslate nohighlight">\(\mathfrak{so}(3)\)</span>, modelled as <span class="math notranslate nohighlight">\(3\times3\)</span> skew symmetric matrices, with vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>.</p>
+<p>is such that <span class="math notranslate nohighlight">\(\hat{a}b=a\times b\)</span> for all <span class="math notranslate nohighlight">\(a,\,b\in \mathbb{R}^3\)</span>. This allows us to identify elements of the lie algebra <span class="math notranslate nohighlight">\(\mathfrak{so}(3)\)</span>, modelled as <span class="math notranslate nohighlight">\(3\times3\)</span> skew symmetric matrices, with vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>.</p>
 <p>We define the trivialized Lagrangian</p>
 <div class="math notranslate nohighlight">
 \[\begin{align}
