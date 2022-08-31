@@ -1,5 +1,6 @@
 function A = hat(v)
-% It returns the skew symmetric matrix A associated to the vector v
+% It returns the skew symmetric matrix A associated to the vector v, such
+% that hat(a)b=axb for all 3-component vectors a and b, with "x" the cross product
 %
 % :param v: vector with 3 components
 %
