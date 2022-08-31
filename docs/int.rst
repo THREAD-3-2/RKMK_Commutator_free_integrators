@@ -17,7 +17,7 @@ Lie group integrators solve differential equations whose solution evolve on a ma
         \dot{y}(t) = F|_{y(t)},\qquad y(t_0)=y_0.    
     \end{align}
 
-Let :math:`G` be a Lie group acting ransitively on :math:`\mathcal{M}` via the froup action :math:`\psi:G \times \mathcal{M} \rightarrow \mathcal{M}`, so that :math:`\mathcal{M}` is a homogeneous manifold. The underlying idea of Runge-Kutta-Munthe-Kaas (RKMK) methods is to express a vector field :math:`F\in\mathfrak{X}(\mathcal{M})` as :math:`F\vert_m = \psi_*(f(m))\vert_m` , where :math:`\psi_*` is the infinitesimal generator of :math:`\psi` and :math:`f:\mathcal{M}\rightarrow\mathfrak{g}`. This allows us to transform the problem from the manifold :math:`\mathcal{M}` to the Lie algebra :math:`\mathfrak{g}` of :math:`G`, on which we can perform a time step integration with a Runge-Kutta method. We then map the result back to :math:`\mathcal{M}`, and repeat this up to the final integration time.  More explicitly, let :math:`h_n` be the size of the :math:`n-th` time step, we then update :math:`y_n\in\mathcal{M}` to :math:`y_{n+1}` by
+Let :math:`G` be a Lie group acting transitively on :math:`\mathcal{M}` via the group action :math:`\psi:G \times \mathcal{M} \rightarrow \mathcal{M}`, so that :math:`\mathcal{M}` is a homogeneous manifold. The underlying idea of Runge-Kutta-Munthe-Kaas (RKMK) methods is to express a vector field :math:`F\in\mathfrak{X}(\mathcal{M})` as :math:`F\vert_m = \psi_*(f(m))\vert_m` , where :math:`\psi_*` is the infinitesimal generator of :math:`\psi` and :math:`f:\mathcal{M}\rightarrow\mathfrak{g}`. This allows us to transform the problem from the manifold :math:`\mathcal{M}` to the Lie algebra :math:`\mathfrak{g}` of :math:`G`, on which we can perform a time step integration with a Runge-Kutta method. We then map the result back to :math:`\mathcal{M}`, and repeat this up to the final integration time.  More explicitly, let :math:`h_n` be the size of the :math:`n-th` time step, we then update :math:`y_n\in\mathcal{M}` to :math:`y_{n+1}` by
 
 .. math::
     :name: eq:1
@@ -25,12 +25,12 @@ Let :math:`G` be a Lie group acting ransitively on :math:`\mathcal{M}` via the f
     \begin{align}
         \begin{cases}
         \sigma(0) = 0\in\mathfrak{g},\\
-        \dot{\sigma}(t) = \textrm{dexp}_{\sigma(t)}^{-1}\circ f\circ \psi (\exp(\sigma(t)),y_n)\in T_{\sigma(t)}\mathfrak{g}, \\
-        y_{n+1} = \Psi(\exp(\sigma_1),y_n)\in \mathcal{M},
+        \dot{\sigma}(t) = \textrm{dexp}_{\sigma(t)}^{-1}\circ f\circ \psi \left(\exp(\sigma(t)),y_n\right)\in T_{\sigma(t)}\mathfrak{g}, \\
+        y_{n+1} = \psi(\exp(\sigma_1),y_n)\in \mathcal{M},
         \end{cases}
     \end{align}
 
-where  :math:`\textrm{exp}:\mathfrak{g}\rightarrow G` is the exponential map and :math:`\sigma_1\approx \sigma(h_n)\in\mathfrak{g}` is computed with a Runge-Kutta method. 
+where  :math:`\textrm{exp}:\mathfrak{g}\rightarrow G` is the exponential map, and :math:`\sigma_1\approx \sigma(h_n)\in\mathfrak{g}` is computed with a Runge-Kutta method. 
 
 
 The transformed differential equation for :math:`\sigma(t)` makes use of the derivative of the exponential mapping. The map :math:`v\mapsto\textrm{dexp}_u(v)` is linear and invertible when :math:`u` belongs to some sufficiently small neighborhood of :math:`0\in\mathfrak{g}`. It has an expansion in nested Lie brackets and, using the operator :math:`\textrm{ad}_u(v)=[u,v]` and its powers :math:`\textrm{ad}_u^2 v=[u,[u,v]]` etc, one can write
