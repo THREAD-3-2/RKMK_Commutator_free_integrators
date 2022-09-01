@@ -73,13 +73,13 @@ the exponential mapping. The map <span class="math notranslate nohighlight">\(v\
 when <span class="math notranslate nohighlight">\(u\)</span> belongs to some sufficiently small neighborhood of <span class="math notranslate nohighlight">\(0\in\mathfrak{g}\)</span>. It
 has an expansion in nested Lie brackets and, using the operator <span class="math notranslate nohighlight">\(\textrm{ad}_u(v)=[u,v]\)</span>
 and its powers <span class="math notranslate nohighlight">\(\textrm{ad}_u^2 v=[u,[u,v]]\)</span> etc, one can write</p>
-<div class="math notranslate nohighlight" id="equation-eq-int3">
-<span class="eqno">(3)<a class="headerlink" href="#equation-eq-int3" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="math notranslate nohighlight" id="equation-int3">
+<span class="eqno">(3)<a class="headerlink" href="#equation-int3" title="Permalink to this equation">¶</a></span>\[\begin{align}
     \textrm{dexp}_u(v) = \left.\frac{e^z-1}{z}\right|_{z=\textrm{ad}_u}(v) = v + \frac12[u,v] + \frac16[u,[u,v]] + \cdots.
 \end{align}\]</div>
 <p>The inverse is</p>
-<div class="math notranslate nohighlight" id="equation-eq-int4">
-<span class="eqno">(4)<a class="headerlink" href="#equation-eq-int4" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="math notranslate nohighlight" id="equation-int4">
+<span class="eqno">(4)<a class="headerlink" href="#equation-int4" title="Permalink to this equation">¶</a></span>\[\begin{align}
     \textrm{dexp}_u^{-1}(v) =\left.\frac{z}{e^z-1}\right|_{z=\textrm{ad}_u}(v)= v -\frac12[u,v] + \frac1{12}[u,[u,v]]+\cdots.
 \end{align}\]</div>
 <p>To evaluate <span class="math notranslate nohighlight">\(\textrm{dexp}_u^{-1}(v)\)</span> one can either truncate the series <span class="xref std std-ref">(3)</span>,
@@ -94,15 +94,15 @@ and <a class="reference external" href="https://github.com/THREAD-3-2/RKMK_Commu
 <section id="examples">
 <span id="rkmk-ex-int"></span><h3>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h3>
 <p>Let us consider an s-stage Runge-Kutta (RK) method:</p>
-<div class="math notranslate nohighlight" id="equation-eq-int5">
-<span class="eqno">(5)<a class="headerlink" href="#equation-eq-int5" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="math notranslate nohighlight" id="equation-int5">
+<span class="eqno">(5)<a class="headerlink" href="#equation-int5" title="Permalink to this equation">¶</a></span>\[\begin{align}
 y_{n+1}=y_n+h \sum_{i=1}^s b_i F\left(Y_i\right), \quad Y_i=y_n+h \sum_{j=1}^s a_{i j} F\left(Y_j\right), \quad i=1, \ldots, s,
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(b_i,\,a_{ij}\, (i,\,j=1,\dots\,s)\)</span> are real numbers called, respectively, the weights and coefficients of
 the method, and <span class="math notranslate nohighlight">\(c_i=\sum_{j=1}^s a_{ij}\)</span> are called the nodes or abscissae. These constants define a specific RK method and can
 be collected in the following Butcher’s tableau:</p>
-<div class="math notranslate nohighlight" id="equation-eq-int6">
-<span class="eqno">(6)<a class="headerlink" href="#equation-eq-int6" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{align}
+<div class="math notranslate nohighlight" id="equation-int6">
+<span class="eqno">(6)<a class="headerlink" href="#equation-int6" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{align}
 \begin{array}{c|cccc}
 c_1 &amp; a_{11} &amp; a_{12} &amp; \ldots &amp; a_{1 s} \\
 c_2 &amp; a_{21} &amp; a_{22} &amp; \ldots &amp; a_{2 s} \\
@@ -112,8 +112,8 @@ c_s &amp; a_{s 1} &amp; a_{s 2} &amp; \ldots &amp; a_{s s} \\
 \end{array}
 \end{align}\end{split}\]</div>
 <p>From equation <a class="reference internal" href="#equation-int2">(2)</a> it follows that one step of the resulting Runge–Kutta–Munthe-Kaas method writes</p>
-<div class="math notranslate nohighlight" id="equation-eq-int7">
-<span class="eqno">(7)<a class="headerlink" href="#equation-eq-int7" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{align}
+<div class="math notranslate nohighlight" id="equation-int7">
+<span class="eqno">(7)<a class="headerlink" href="#equation-int7" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{align}
 &amp;y_1=\exp \left(h \sum_{i=1}^s b_i k_i\right) \cdot y_0,\\
 &amp;k_i=\operatorname{dexp}_{h \sum_j^{-1} a_{i j} k_j} f\left(\exp \left(h \sum_j a_{i j} k_j\right) \cdot y_0\right), \quad i=1, \ldots, s,
 \end{align}\end{split}\]</div>
@@ -130,7 +130,7 @@ c_s &amp; a_{s 1} &amp; a_{s 2} &amp; \ldots &amp; a_{s s} \\
 <a class="reference external" href="https://github.com/THREAD-3-2/RKMK_Commutator_free_integrators/blob/main/src/integrators/LieEuler.m">LieEuler</a>.</p>
 <p>An improvement to the Lie-Euler method is the second-order RKMK method based on the Heun method’s tableau:</p>
 <div class="math notranslate nohighlight" id="equation-int-1">
-<span class="eqno">(9)<a class="headerlink" href="#equation-int-1" title="Permalink to this equation">¶</a></span>\[\begin{split}begin{align}
+<span class="eqno">(9)<a class="headerlink" href="#equation-int-1" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{align}
 \begin{array}{c|cc}
 0 &amp; 0 &amp; 0 \\
 1 &amp; 1 &amp; 0 \\

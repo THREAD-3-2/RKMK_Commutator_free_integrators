@@ -55,7 +55,7 @@ has an expansion in nested Lie brackets and, using the operator :math:`\textrm{a
 and its powers :math:`\textrm{ad}_u^2 v=[u,[u,v]]` etc, one can write
 
 .. math::
-    :label: eq:int3
+    :label: int3
     
     \begin{align}
         \textrm{dexp}_u(v) = \left.\frac{e^z-1}{z}\right|_{z=\textrm{ad}_u}(v) = v + \frac12[u,v] + \frac16[u,[u,v]] + \cdots.
@@ -64,7 +64,7 @@ and its powers :math:`\textrm{ad}_u^2 v=[u,[u,v]]` etc, one can write
 The inverse is
 
 .. math::
-    :label: eq:int4
+    :label: int4
     
     \begin{align}
         \textrm{dexp}_u^{-1}(v) =\left.\frac{z}{e^z-1}\right|_{z=\textrm{ad}_u}(v)= v -\frac12[u,v] + \frac1{12}[u,[u,v]]+\cdots.
@@ -87,7 +87,7 @@ Examples
 Let us consider an s-stage Runge-Kutta (RK) method:
 
 .. math::
-    :label: eq:int5
+    :label: int5
 
     \begin{align}
     y_{n+1}=y_n+h \sum_{i=1}^s b_i F\left(Y_i\right), \quad Y_i=y_n+h \sum_{j=1}^s a_{i j} F\left(Y_j\right), \quad i=1, \ldots, s,
@@ -98,7 +98,7 @@ the method, and :math:`c_i=\sum_{j=1}^s a_{ij}` are called the nodes or abscissa
 be collected in the following Butcher's tableau:
 
 .. math::
-    :label: eq:int6
+    :label: int6
 
     \begin{align}
     \begin{array}{c|cccc}
@@ -113,7 +113,7 @@ be collected in the following Butcher's tableau:
 From equation :eq:`int2` it follows that one step of the resulting Runge–Kutta–Munthe-Kaas method writes 
 
 .. math::
-    :label: eq:int7
+    :label: int7
 
     \begin{align}
     &y_1=\exp \left(h \sum_{i=1}^s b_i k_i\right) \cdot y_0,\\
@@ -140,7 +140,7 @@ An improvement to the Lie-Euler method is the second-order RKMK method based on 
 
 .. math::
 
-    begin{align}
+    \begin{align}
     \begin{array}{c|cc}
     0 & 0 & 0 \\
     1 & 1 & 0 \\
