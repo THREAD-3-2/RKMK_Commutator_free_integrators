@@ -143,7 +143,7 @@ An improvement to the Lie-Euler method is the second-order RKMK method based on 
     begin{align}
     \begin{array}{c|cc}
     0 & 0 & 0 \\
-    {1/2} & {1/2} & 0 \\
+    1 & 1 & 0 \\
     \hline & 0 & 1
     \end{array}
     \end{align}
