@@ -1,5 +1,5 @@
 function sol = RKMK2Heun(vector_field,exponential,action,p,h,sigma0,trajectory,t)
-% Runge-Kutta-Munthe-Kaas time integrator order 2, based on Heun scheme
+% Runge-Kutta-Munthe-Kaas time integrator order 2, based on the Heun scheme
 %
 % :param vector_field: right hand side of the ODE [type: function handle]
 % :param exponential: exponential map from the Lie algebra to the Lie group [type: function handle]

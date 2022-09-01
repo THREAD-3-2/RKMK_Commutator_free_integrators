@@ -1,4 +1,4 @@
-% preprocessing
+% Preprocessing : definition and inizialization of support variables to plot errors and trajectories
 
 mass = zeros(3,N);
 mass1 = mass;

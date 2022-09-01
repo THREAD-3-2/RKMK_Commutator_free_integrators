@@ -1,4 +1,4 @@
-% postprocessing
+% Postprocessing: update of support variables to plot errors and real time plot of the tracking problem
 
 eynorm(i) = norm(sol(:,1)-yd(t),2);
 

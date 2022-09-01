@@ -1,4 +1,4 @@
-% main function
+% Main function
 %
 % Example on the application of Lie group integrators for the solution of 
 % the equations of motion of a multibody system, August 2022, Andrea Leone @ NTNU
@@ -31,7 +31,7 @@ L2 = 0.8;
 g = 9.81;
 e3 = [0;0;1];
 
-% initial conditions
+% Initial conditions
 R1 = eye(3);
 R2 = R1;
 y0 = [-2;0;0];
@@ -45,7 +45,7 @@ Omega2 = v;
 
 z0 = [y0, v, R1, Omega1, R2, Omega2, q10, w1, q20, w2];
 
-% desidered trajectory (e.g. parabolic trajectory) with derivatives 
+% Desidered trajectory (e.g. parabolic trajectory) with derivatives 
 % needed to define controls
 yd = @(t) [t-2.5;0;(t-2.5).^2-7];
 yd_dot = @(t) [1;0;2*(t-2.5)];
@@ -103,7 +103,7 @@ A = @(P) [eye(3), zeros(3), zeros(3), zeros(3), zeros(3), zeros(3);
           zeros(3), -1/L1*hat(P(:,11)), zeros(3),  zeros(3), eye(3), zeros(3);
           zeros(3), -1/L2*hat(P(:,13)), zeros(3),  zeros(3), zeros(3), eye(3)];
 
-% help function to define the vector field 
+% Support functions to define the vector field 
 
 getvi = @(v,i) v(3*i-2:3*i); 
 GetPerp = @(qi,u) -hat(qi)^2*u;
@@ -172,7 +172,7 @@ end
 time = linspace(0,T,N);
 dt = time(2)-time(1);
 
-% initialization of the solutions with the 5 different integrators
+% Initialization of the solutions with the 5 different integrators
 z1 = z0;
 z2 = z0;
 z3 = z0;
@@ -181,7 +181,7 @@ z5 = z0;
 
 sigma0 = zeros(30,1);
 
-% preprocessing for errors, controls and plots
+% Preprocessing for errors, controls and plots
 preprocess;
 
 for i = 1:N-1
@@ -196,10 +196,10 @@ for i = 1:N-1
 
     sol=z4; % solution at time t=time(i) with integrator RKMK4 in this case
 
-% postprocessing for errors, controls and plots
+% Postprocessing for errors, controls and plots
     postprocess;
 
 end
 
-% plots of trajectories and errors 
+% Plots of trajectories and errors 
 plots;
