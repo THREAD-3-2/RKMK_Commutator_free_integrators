@@ -79,7 +79,7 @@ the exponential map on SO(3) and SE(3) are implemented
 in `dexpinvSO3 <https://github.com/THREAD-3-2/RKMK_Commutator_free_integrators/blob/main/src/lie_group_functions/dexpinvSO3.m>`_ 
 and `dexpinvSE3 <https://github.com/THREAD-3-2/RKMK_Commutator_free_integrators/blob/main/src/lie_group_functions/dexpinvSE3.m>`_.
 
-.. _rkmk__ex_int:
+.. _rkmk_ex_int:
 
 Examples
 ^^^^^^^^
@@ -90,6 +90,7 @@ Let us consider an s-stage Runge-Kutta (RK) method:
 
 \begin{align}
 y_{n+1}=y_n+h \sum_{i=1}^s b_i F\left(Y_i\right), \quad Y_i=y_n+h \sum_{j=1}^s a_{i j} F\left(Y_j\right), \quad i=1, \ldots, s,
+\end{align}
 
 where :math:`b_i,\,a_{ij}\, (i,\,j=1,\dots\,s)` are real numbers called, respectively, the weights and coefficients of 
 the method, and :math:`c_i=\sum_{j=1}^s a_{ij}`. These constants define a specific RK method and can be collected
@@ -106,6 +107,7 @@ c_2 & a_{21} & a_{22} & \ldots & a_{2 s} \\
 c_s & a_{s 1} & a_{s 2} & \ldots & a_{s s} \\
 \hline & b_1 & b_2 & \ldots & b_s
 \end{array}
+\end{align}
 
 
 

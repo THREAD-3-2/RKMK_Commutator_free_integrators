@@ -93,7 +93,8 @@ and <a class="reference external" href="https://github.com/THREAD-3-2/RKMK_Commu
 <div class="math notranslate nohighlight" id="eq-int5">
 <span id="equation-eq-int5"></span><span class="eqno">(4)<a class="headerlink" href="#eq-int5" title="Permalink to this equation">¶</a></span>\[\]</div>
 <p>begin{align}
-y_{n+1}=y_n+h sum_{i=1}^s b_i Fleft(Y_iright), quad Y_i=y_n+h sum_{j=1}^s a_{i j} Fleft(Y_jright), quad i=1, ldots, s,</p>
+y_{n+1}=y_n+h sum_{i=1}^s b_i Fleft(Y_iright), quad Y_i=y_n+h sum_{j=1}^s a_{i j} Fleft(Y_jright), quad i=1, ldots, s,
+end{align}</p>
 <p>where <span class="math notranslate nohighlight">\(b_i,\,a_{ij}\, (i,\,j=1,\dots\,s)\)</span> are real numbers called, respectively, the weights and coefficients of
 the method, and <span class="math notranslate nohighlight">\(c_i=\sum_{j=1}^s a_{ij}\)</span>. These constants define a specific RK method and can be collected
 in the following Butcher’s tableau:</p>
@@ -106,7 +107,8 @@ c_2 &amp; a_{21} &amp; a_{22} &amp; ldots &amp; a_{2 s} \
 vdots &amp; vdots &amp; vdots &amp; ddots &amp; vdots \
 c_s &amp; a_{s 1} &amp; a_{s 2} &amp; ldots &amp; a_{s s} \
 hline &amp; b_1 &amp; b_2 &amp; ldots &amp; b_s
-end{array}</p>
+end{array}
+end{align}</p>
 <p>From equation</p>
 <div class="math notranslate nohighlight" id="eq-int7">
 <span id="equation-eq-int7"></span><span class="eqno">(6)<a class="headerlink" href="#eq-int7" title="Permalink to this equation">¶</a></span>\[\]</div>
