@@ -17,7 +17,7 @@ Contents
    ode
    int
    matlab
-   :maxdepth: 2
+   :maxdepth: 3
 
 
 Indices and tables

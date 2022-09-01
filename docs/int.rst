@@ -15,7 +15,7 @@ whose tangent at any point coincides with a vector field :math:`F\in\mathcal{X}(
 and passes through a designated initial value :math:`y_0` at :math:`t=t_0`:
 
 .. math::
-    :name: eq:int1
+    :label: vecfield
     \begin{align}
         \dot{y}(t) = F|_{y(t)},\qquad y(t_0)=y_0.    
     \end{align}
@@ -54,7 +54,7 @@ has an expansion in nested Lie brackets and, using the operator :math:`\textrm{a
 and its powers :math:`\textrm{ad}_u^2 v=[u,[u,v]]` etc, one can write
 
 .. math::
-    :name: eq:int3
+    :label: eq:int3
     
     \begin{align}
         \textrm{dexp}_u(v) = \left.\frac{e^z-1}{z}\right|_{z=\textrm{ad}_u}(v) = v + \frac12[u,v] + \frac16[u,[u,v]] + \cdots.
@@ -63,7 +63,7 @@ and its powers :math:`\textrm{ad}_u^2 v=[u,[u,v]]` etc, one can write
 The inverse is
 
 .. math::
-    :name: eq:int4
+    :label: eq:int4
     
     \begin{align}
         \textrm{dexp}_u^{-1}(v) =\left.\frac{z}{e^z-1}\right|_{z=\textrm{ad}_u}(v)= v -\frac12[u,v] + \frac1{12}[u,[u,v]]+\cdots.
@@ -86,7 +86,7 @@ Examples
 Let us consider an s-stage Runge-Kutta (RK) method:
 
 .. math::
-    :name: eq:int5
+    :label: eq:int5
 
     \begin{align}
     y_{n+1}=y_n+h \sum_{i=1}^s b_i F\left(Y_i\right), \quad Y_i=y_n+h \sum_{j=1}^s a_{i j} F\left(Y_j\right), \quad i=1, \ldots, s,
@@ -97,7 +97,7 @@ the method, and :math:`c_i=\sum_{j=1}^s a_{ij}` are called the nodes or abscissa
 in the following Butcher's tableau:
 
 .. math::
-    :name: eq:int6
+    :label: eq:int6
 
     \begin{align}
     \begin{array}{c|cccc}
@@ -112,7 +112,7 @@ in the following Butcher's tableau:
 From equation :eq:`int2` we see that
 
 .. math::
-    :name: eq:int7
+    :label: eq:int7
 
     \begin{align}
     &y_1=\exp \left(h \sum_{i=1}^s b_i k_i\right) \cdot y_0,\\
