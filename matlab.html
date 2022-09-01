@@ -70,18 +70,18 @@ International Journal of Computer Mathematics, 99:1, 58-88.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>vector_field</strong> – right hand side of the ODE</p></li>
-<li><p><strong>action</strong> – Lie group action</p></li>
-<li><p><strong>exponential</strong> – exponential map from the Lie algebra to the Lie group</p></li>
-<li><p><strong>p</strong> – solution at time t_n</p></li>
-<li><p><strong>h</strong> – time step size</p></li>
-<li><p><strong>sigma0</strong> – initial value of the curve sigma on the Lie algebra</p></li>
-<li><p><strong>trajectory</strong> – desired trajectory</p></li>
-<li><p><strong>t</strong> – discrete time t_n</p></li>
+<li><p><strong>vector_field</strong> – right hand side of the ODE [type: function handle]</p></li>
+<li><p><strong>exponential</strong> – exponential map from the Lie algebra to the Lie group [type: function handle]</p></li>
+<li><p><strong>action</strong> – Lie group action [type: function handle]</p></li>
+<li><p><strong>p</strong> – solution at time t_n [type: float, 3x14 matrix]</p></li>
+<li><p><strong>h</strong> – time step size [type: float]</p></li>
+<li><p><strong>sigma0</strong> – initial value of the curve sigma on the Lie algebra [type: float, 30x1 vector]</p></li>
+<li><p><strong>trajectory</strong> – desired trajectory [type: function handle]</p></li>
+<li><p><strong>t</strong> – discrete time t_n [type: float]</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>solution at time t_(n+1))order 1</p>
+<dd class="field-even"><p>solution at time t_(n+1) [type: float, 3x14 matrix]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -96,18 +96,18 @@ International Journal of Computer Mathematics, 99:1, 58-88.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>vector_field</strong> – right hand side of the ODE</p></li>
-<li><p><strong>action</strong> – Lie group action</p></li>
-<li><p><strong>exponential</strong> – exponential map from the Lie algebra to the Lie group</p></li>
-<li><p><strong>p</strong> – solution at time t_n</p></li>
-<li><p><strong>h</strong> – time step size</p></li>
-<li><p><strong>sigma0</strong> – initial value of the curve sigma on the Lie algebra</p></li>
-<li><p><strong>trajectory</strong> – desired trajectory</p></li>
-<li><p><strong>t</strong> – discrete time t_n</p></li>
+<li><p><strong>vector_field</strong> – right hand side of the ODE [type: function handle]</p></li>
+<li><p><strong>exponential</strong> – exponential map from the Lie algebra to the Lie group [type: function handle]</p></li>
+<li><p><strong>action</strong> – Lie group action [type: function handle]</p></li>
+<li><p><strong>p</strong> – solution at time t_n [type: float, 3x14c matrix]</p></li>
+<li><p><strong>h</strong> – time step size [type: float]</p></li>
+<li><p><strong>sigma0</strong> – initial value of the curve sigma on the Lie algebra [type: float, 30x1 vector]</p></li>
+<li><p><strong>trajectory</strong> – desired trajectory [type: function handle]</p></li>
+<li><p><strong>t</strong> – discrete time t_n [type: float]</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>solution at time t_(n+1)</p>
+<dd class="field-even"><p>solution at time t_(n+1) [type: float, 3x14 matrix]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -148,18 +148,18 @@ International Journal of Computer Mathematics, 99:1, 58-88.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>vector_field</strong> – right hand side of the ODE</p></li>
-<li><p><strong>action</strong> – Lie group action</p></li>
-<li><p><strong>exponential</strong> – exponential map from the Lie algebra to the Lie group</p></li>
-<li><p><strong>p</strong> – solution at time t_n</p></li>
-<li><p><strong>h</strong> – time step size</p></li>
-<li><p><strong>sigma0</strong> – initial value of the curve sigma on the Lie algebra</p></li>
-<li><p><strong>trajectory</strong> – desired trajectory</p></li>
-<li><p><strong>t</strong> – discrete time t_n</p></li>
+<li><p><strong>vector_field</strong> – right hand side of the ODE [type: function handle]</p></li>
+<li><p><strong>exponential</strong> – exponential map from the Lie algebra to the Lie group [type: function handle]</p></li>
+<li><p><strong>action</strong> – Lie group action [type: function handle]</p></li>
+<li><p><strong>p</strong> – solution at time t_n [type: float, 3x14c matrix]</p></li>
+<li><p><strong>h</strong> – time step size [type: float]</p></li>
+<li><p><strong>sigma0</strong> – initial value of the curve sigma on the Lie algebra [type: float, 30x1 vector]</p></li>
+<li><p><strong>trajectory</strong> – desired trajectory [type: function handle]</p></li>
+<li><p><strong>t</strong> – discrete time t_n [type: float]</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>solution at time t_(n+1)</p>
+<dd class="field-even"><p>solution at time t_(n+1) [type: float, 3x14 matrix]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -174,17 +174,17 @@ International Journal of Computer Mathematics, 99:1, 58-88.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>f</strong> – map f from the phase space (on which the vector field is defined) to the Lie algebra</p></li>
-<li><p><strong>action</strong> – Lie group action</p></li>
-<li><p><strong>exponential</strong> – exponential map from the Lie algebra to the Lie group</p></li>
-<li><p><strong>h</strong> – time step size</p></li>
-<li><p><strong>p</strong> – solution at time t_n</p></li>
-<li><p><strong>trajectory</strong> – desired trajectory</p></li>
-<li><p><strong>t</strong> – discrete time t_n</p></li>
+<li><p><strong>f</strong> – map f from the phase space (on which the vector field is defined) to the Lie algebra [type: function handle]</p></li>
+<li><p><strong>action</strong> – Lie group action [type: function handle]</p></li>
+<li><p><strong>exponential</strong> – exponential map from the Lie algebra to the Lie group [type: function handle]</p></li>
+<li><p><strong>h</strong> – time step size [type: float]</p></li>
+<li><p><strong>p</strong> – solution at time t_n [type: float, 3x14 matrix]</p></li>
+<li><p><strong>trajectory</strong> – desired trajectory [type: function handle]</p></li>
+<li><p><strong>t</strong> – discrete time t_n [type float]</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>solution at time t_(n+1)</p>
+<dd class="field-even"><p>solution at time t_(n+1) [type: float, 3x14 matrix]</p>
 </dd>
 </dl>
 </dd></dl>
