@@ -1,15 +1,15 @@
 function sol = CFree4(f,action,exponential,h,p,trajectory,t)
 % Commutator-free time integrator of order 4
 %
-% :param f: map f from the phase space (on which the vector field is defined) to the Lie algebra
-% :param action: Lie group action
-% :param exponential: exponential map from the Lie algebra to the Lie group
-% :param h: time step size
-% :param p: solution at time t_n
-% :param trajectory: desired trajectory
-% :param t: discrete time t_n
+% :param f: map f from the phase space (on which the vector field is defined) to the Lie algebra [type: function handle]
+% :param action: Lie group action [type: function handle]
+% :param exponential: exponential map from the Lie algebra to the Lie group [type: function handle]
+% :param h: time step size [type: float]
+% :param p: solution at time t_n [type: float, 3x14 matrix]
+% :param trajectory: desired trajectory [type: function handle]
+% :param t: discrete time t_n [type float]
 %
-% :returns: solution at time t_(n+1)
+% :returns: solution at time t_(n+1) [type: float, 3x14 matrix]
         
     gAc = @(g,x) action(exponential(g),x); 
     
