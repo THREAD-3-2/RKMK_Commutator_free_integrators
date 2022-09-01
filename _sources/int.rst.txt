@@ -79,10 +79,40 @@ the exponential map on SO(3) and SE(3) are implemented
 in `dexpinvSO3 <https://github.com/THREAD-3-2/RKMK_Commutator_free_integrators/blob/main/src/lie_group_functions/dexpinvSO3.m>`_ 
 and `dexpinvSE3 <https://github.com/THREAD-3-2/RKMK_Commutator_free_integrators/blob/main/src/lie_group_functions/dexpinvSE3.m>`_.
 
-One step of 
+.. _rkmk__ex_int:
+
+Examples
+^^^^^^^^
+Let us consider an s-stage Runge-Kutta (RK) method:
 
 .. math::
     :name: eq:int5
+
+\begin{align}
+y_{n+1}=y_n+h \sum_{i=1}^s b_i F\left(Y_i\right), \quad Y_i=y_n+h \sum_{j=1}^s a_{i j} F\left(Y_j\right), \quad i=1, \ldots, s,
+
+where :math:`b_i,\,a_{ij}\, (i,\,j=1,\dots\,s)` are real numbers called, respectively, the weights and coefficients of 
+the method, and :math:`c_i=\sum_{j=1}^s a_{ij}`. These constants define a specific RK method and can be collected
+in the following Butcher's tableau:
+
+.. math::
+    :name: eq:int6
+
+\begin{align}
+\begin{array}{c|cccc}
+c_1 & a_{11} & a_{12} & \ldots & a_{1 s} \\
+c_2 & a_{21} & a_{22} & \ldots & a_{2 s} \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+c_s & a_{s 1} & a_{s 2} & \ldots & a_{s s} \\
+\hline & b_1 & b_2 & \ldots & b_s
+\end{array}
+
+
+
+From equation 
+
+.. math::
+    :name: eq:int7
 
 \begin{align}
 &y_1=\exp \left(h \sum_{i=1}^s b_i k_i\right) \cdot y_0,\\
