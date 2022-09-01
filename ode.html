@@ -41,18 +41,18 @@
 <span id="descr-ode"></span><h2>Problem description<a class="headerlink" href="#problem-description" title="Permalink to this heading">¶</a></h2>
 <p>We consider a multibody system made of two cooperating quadrotor unmanned aerial vehicles (UAV) connected to a point mass (suspended load) via rigid links. This model is described in <a class="reference external" href="https://dx.doi.org/10.1109/CDC.2013.6760757">(Lee, Sreenath, Kumar, 2013)</a>.</p>
 <p>We introduce an inertial frame whose third axis goes in the direction of gravity, but opposite orientation, and we attach body-fixed frames to each quadrotor (with the origins located respectively at the center of mass of each quadrotor). We denote with <span class="math notranslate nohighlight">\(y,y_1,y_2\in\mathbb{R}^3\)</span> the locations, respectively, of the mass point and the center of mass of each quadrotor with respect to the intertial frame. We assume that the links between the two quadrotors and the mass point are of a fixed length <span class="math notranslate nohighlight">\(L_1, L_2\in\mathbb{R}^+\)</span>. The configuration variables of the system are: the position of the mass point in the inertial frame, <span class="math notranslate nohighlight">\(y\in \mathbb{R}^3\)</span>, the attitude matrices of the two quadrotors, <span class="math notranslate nohighlight">\((R_1, R_2)\in (SO(3))^2\)</span> and the directions of the links which connect the center of mass of each quadrotor respectively with the mass point, <span class="math notranslate nohighlight">\((q_1,q_2)\in (S^2)^2\)</span>. The configuration manifold of the system is</p>
-<div class="math notranslate nohighlight">
-\[\begin{align}
+<div class="math notranslate nohighlight" id="equation-ode-0">
+<span class="eqno">(1)<a class="headerlink" href="#equation-ode-0" title="Permalink to this equation">¶</a></span>\[\begin{align}
         Q=\mathbb{R}^3\times (SO(3))^2 \times (S^2)^2.
 \end{align}\]</div>
 <p>In order to write the equations of motion of the system, we identify <span class="math notranslate nohighlight">\(TSO(3)\simeq SO(3)\times \mathfrak{so}(3)\)</span> via left-trivialization. This choice allows us to write the kinematic equations of the system as</p>
-<div class="math notranslate nohighlight">
-\[\begin{align}
+<div class="math notranslate nohighlight" id="equation-ode-1">
+<span class="eqno">(2)<a class="headerlink" href="#equation-ode-1" title="Permalink to this equation">¶</a></span>\[\begin{align}
         \dot{R}_i = R_i\hat{\Omega}_i,\quad \dot{q}_i = \hat{\omega}_iq_i,\quad \quad i=1,2,
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\Omega_1,\Omega_2\in\mathbb{R}^3\)</span> represent the angular velocities of each quadrotor expressed with respect to its body-fixed frame, and <span class="math notranslate nohighlight">\(\omega_1,\omega_2\)</span> are the angular velocities of the links <span class="math notranslate nohighlight">\(q_1,q_2\in S^2\)</span>, satisfying <span class="math notranslate nohighlight">\(q_i\cdot\omega_i=0\;(i=1,2)\)</span>. The <a class="reference external" href="https://github.com/THREAD-3-2/RKMK_Commutator_free_integrators/blob/main/src/lie_group_functions/hat.m">hat map</a></p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\hat{\cdot}:\mathbb{R}^3\rightarrow  \mathfrak{so}(3),\qquad
+<div class="math notranslate nohighlight" id="equation-ode-2">
+<span class="eqno">(3)<a class="headerlink" href="#equation-ode-2" title="Permalink to this equation">¶</a></span>\[\begin{split}\hat{\cdot}:\mathbb{R}^3\rightarrow  \mathfrak{so}(3),\qquad
      \begin{align}
      \xi=\left[\begin{array}{c}
          \xi_1 \\
@@ -67,47 +67,47 @@
  \end{align}\end{split}\]</div>
 <p>is such that <span class="math notranslate nohighlight">\(\hat{a}b=a\times b\)</span> for all <span class="math notranslate nohighlight">\(a,\,b\in \mathbb{R}^3\)</span>. This allows us to identify elements of the lie algebra <span class="math notranslate nohighlight">\(\mathfrak{so}(3)\)</span>, modelled as <span class="math notranslate nohighlight">\(3\times3\)</span> skew symmetric matrices, with vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>.</p>
 <p>We define the trivialized Lagrangian</p>
-<div class="math notranslate nohighlight">
-\[\begin{align}
+<div class="math notranslate nohighlight" id="equation-ode-3">
+<span class="eqno">(4)<a class="headerlink" href="#equation-ode-3" title="Permalink to this equation">¶</a></span>\[\begin{align}
         L(y,\dot{y},R_1,\Omega_1,R_2,\Omega_2,q_1,\omega_1,q_2,\omega_2): \mathbb{R}^6\times \left(SO(3)\times \mathfrak{so}(3)\right)^2\times (TS^2)^2\rightarrow \mathbb{R},
 \end{align}\]</div>
 <p>as the difference of the total kinetic energy of the system and the total potential (gravitational) energy, <span class="math notranslate nohighlight">\(L=T-U\)</span>, with:</p>
-<div class="math notranslate nohighlight">
-\[\begin{align}
+<div class="math notranslate nohighlight" id="equation-ode-4">
+<span class="eqno">(5)<a class="headerlink" href="#equation-ode-4" title="Permalink to this equation">¶</a></span>\[\begin{align}
         T = \frac{1}{2}m_y\|\dot{y}\|^2 +\frac{1}{2}\sum_{i=1}^2 (m_i\|\dot{y} -L_i\hat{\omega}_iq_i \|^2 + \Omega_i^TJ_i\Omega_i) ,
 \end{align}\]</div>
 <p>and</p>
-<div class="math notranslate nohighlight">
-\[\begin{align}
+<div class="math notranslate nohighlight" id="equation-ode-5">
+<span class="eqno">(6)<a class="headerlink" href="#equation-ode-5" title="Permalink to this equation">¶</a></span>\[\begin{align}
         U= -m_yge_3^Ty - \sum_{i=1}^2 m_ige_3^T(y-L_iq_i),
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(J_1,J_2\in\mathbb{R}^{3\times 3}\)</span> are the inertia matrices of the two quadrotors and <span class="math notranslate nohighlight">\(m_1,m_2\in\mathbb{R}^+\)</span> are their respective total masses. In this system each of the two quadrotors generates a thrust force <span class="math notranslate nohighlight">\(u_i = -T_iR_ie_3\in\mathbb{R}^3\,(i=1,2)\)</span> with respect to the inertial frame, with <span class="math notranslate nohighlight">\(T_i\)</span> the thrust magnitude and <span class="math notranslate nohighlight">\(e_3\)</span> the direction of the thrust vector in the i-th body-fixed frame. The presence of these forces make it a non conservative system. Moreover, the rotors of each of the two quadrotors generate a moment vector with respect to its body-fixed frame, and we denote with <span class="math notranslate nohighlight">\(M_1, M_2\in\mathbb{R}^3\)</span> the cumulative moment vector of each of the two quadrotors. By using the Lagrange–d’Alambert’s principle, we get the following Euler–Lagrange equations:</p>
-<div class="math notranslate nohighlight">
-\[\begin{align}
+<div class="math notranslate nohighlight" id="equation-ode-6">
+<span class="eqno">(7)<a class="headerlink" href="#equation-ode-6" title="Permalink to this equation">¶</a></span>\[\begin{align}
         A(z)\dot{z} = h(z)
 \end{align}\]</div>
 <p>where</p>
-<div class="math notranslate nohighlight">
-\[\begin{align}
+<div class="math notranslate nohighlight" id="equation-ode-7">
+<span class="eqno">(8)<a class="headerlink" href="#equation-ode-7" title="Permalink to this equation">¶</a></span>\[\begin{align}
         z = [y,v,\Omega_1,\Omega_2,\omega_1,\omega_2]^T\in\mathbb{R}^{18},
 \end{align}\]</div>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{align}
+<div class="math notranslate nohighlight" id="equation-ode-8">
+<span class="eqno">(9)<a class="headerlink" href="#equation-ode-8" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{align}
         A(z) = \begin{bmatrix} I_3 &amp; 0_3 &amp; 0_3 &amp; 0_3 &amp; 0_3 &amp; 0_3 \\ 0_3 &amp; M_q  &amp; 0_3 &amp; 0_3  &amp; 0_3 &amp; 0_3   \\ 0_3 &amp; 0_3 &amp; J_1 &amp; 0_3 &amp; 0_3 &amp; 0_3 \\ 0_3 &amp; 0_3 &amp; 0_3 &amp; J_2 &amp;  0_3 &amp;  0_3 \\ 0_3 &amp; -\frac{1}{L_1}\hat{q}_1 &amp; 0_3 &amp; 0_3 &amp; I_3 &amp; 0_3 \\ 0_3 &amp; -\frac{1}{L_2}\hat{q}_2 &amp; 0_3 &amp; 0_3 &amp; 0_3 &amp; I_3\end{bmatrix},
 \end{align}\end{split}\]</div>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{align}
+<div class="math notranslate nohighlight" id="equation-ode-9">
+<span class="eqno">(10)<a class="headerlink" href="#equation-ode-9" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{align}
         h(z) = \begin{bmatrix}h_1(z) \\ h_2(z) \\ h_3(z) \\ h_4(z) \\  h_5(z) \\ h_6(z)\end{bmatrix} =\begin{bmatrix} v \\ -\sum_{i=1}^{2} m_{i}L_{i}\|\omega_{i}  \|^{2} q_{i} + M_q g e_{3}+\sum_{i=1}^{2} u_i^{\parallel} \\ -\Omega_1\times J_1\Omega_1 + M_1 \\ -\Omega_2\times J_2\Omega_2 + M_2 \\ -\frac{1}{L_1} g \hat{q}_{1} e_{3} -\frac{1}{m_1L_1}q_{1} \times u_1^{\perp}\\ -\frac{1}{L_2} g \hat{q}_{2} e_{3} -\frac{1}{m_2L_2}q_{2} \times u_2^{\perp}\end{bmatrix},
 \end{align}\end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(M_q = m_yI_3 + \sum_{i=1}^2m_iq_iq_i^T,\)</span> and  <span class="math notranslate nohighlight">\(u_i^{\parallel},u_i^{\perp}\)</span> are respectively the orthogonal projection of <span class="math notranslate nohighlight">\(u_i\)</span> along <span class="math notranslate nohighlight">\(q_i\)</span> and to the plane <span class="math notranslate nohighlight">\(T_{q_i}S^2\)</span>, <span class="math notranslate nohighlight">\(i=1,2\)</span>, i.e. <span class="math notranslate nohighlight">\(u_i^{\parallel}=q_{i} q_{i}^{T}u_i\)</span>, <span class="math notranslate nohighlight">\(u_i^{\perp}=(I-q_{i} q_{i}^{T})u_i\)</span>.
 These equations, coupled with the kinematic equations, describe the dynamics of a point</p>
-<div class="math notranslate nohighlight">
-\[\begin{align}
+<div class="math notranslate nohighlight" id="equation-ode-10">
+<span class="eqno">(11)<a class="headerlink" href="#equation-ode-10" title="Permalink to this equation">¶</a></span>\[\begin{align}
         P = \left[y ,\;\; v,\;\; R_1 ,\;\; \Omega_1 ,\;\; R_2 ,\;\; \Omega_2 ,\;\; q_1 ,\;\; \omega_1  ,\;\; q_2 ,\;\; \omega_2 \right] \in \mathcal{M} = TQ.
 \end{align}\]</div>
 <p>Since the matrix <span class="math notranslate nohighlight">\(A(z)\)</span> is invertible, we pass to the following set of equations</p>
-<div class="math notranslate nohighlight">
-\[\begin{align}
+<div class="math notranslate nohighlight" id="equation-ode-11">
+<span class="eqno">(12)<a class="headerlink" href="#equation-ode-11" title="Permalink to this equation">¶</a></span>\[\begin{align}
         \dot{z} = A^{-1}(z)h(z):=\tilde{h}(z) :=\bar{h}(P) = [\bar{h}_1(P),...,\bar{h}_6(P)]^T.
 \end{align}\]</div>
 <p>We highlight that the inputs <span class="math notranslate nohighlight">\(\{u_i^{\parallel},u_i^{\perp},M_i\}_{i=1,2}\)</span> act as controls. They are constructed such that the point mass asymptotically follows a given desired trajectory <span class="math notranslate nohighlight">\(y_d \in \mathbb{R}^3\)</span>, given by a smooth function of time, and the quadrotors maintain a prescribed formation relative to the point mass. In particular, the parallel components <span class="math notranslate nohighlight">\(u_i^{\parallel}\)</span> are designed such that the payload follows the desired trajectory <span class="math notranslate nohighlight">\(y_d\)</span> (load transportation problem), while the normal components <span class="math notranslate nohighlight">\(u_i^{\perp}\)</span> are designed such that <span class="math notranslate nohighlight">\(q_i\)</span> converge to desired directions <span class="math notranslate nohighlight">\(q_{id}\)</span> (tracking problem in <span class="math notranslate nohighlight">\(S^2\)</span>). Finally, <span class="math notranslate nohighlight">\(M_i\)</span> are designed to control the attitude of the quadrotors.</p>
@@ -115,51 +115,51 @@ These equations, coupled with the kinematic equations, describe the dynamics of 
 <section id="analysis-via-transitive-group-action">
 <span id="liegroup-ode"></span><h2>Analysis via transitive group action<a class="headerlink" href="#analysis-via-transitive-group-action" title="Permalink to this heading">¶</a></h2>
 <p>In this section we show how to obtain the local representation of the vector field <span class="math notranslate nohighlight">\(F\in\mathfrak{X}(\mathcal{M})\)</span> of the system presented un the previous section, in terms of the infinitesimal generator of a transitive group action <span class="math notranslate nohighlight">\(\psi\)</span>. This is the formalism also used in the  <a class="reference external" href="https://github.com/THREAD-3-2/RKMK_Commutator_free_integrators/blob/main/src/main.m">main code</a>. We start by identifying the phase space <span class="math notranslate nohighlight">\(\mathcal{M}\)</span> with</p>
-<div class="math notranslate nohighlight">
-\[\begin{align}
+<div class="math notranslate nohighlight" id="equation-ode-12">
+<span class="eqno">(13)<a class="headerlink" href="#equation-ode-12" title="Permalink to this equation">¶</a></span>\[\begin{align}
         \mathcal{M}\simeq T\mathbb{R}^3\times (TSO(3))^2 \times (TS^2)^2.
 \end{align}\]</div>
 <p>The group we consider is</p>
-<div class="math notranslate nohighlight">
-\[\begin{align}
+<div class="math notranslate nohighlight" id="equation-ode-13">
+<span class="eqno">(14)<a class="headerlink" href="#equation-ode-13" title="Permalink to this equation">¶</a></span>\[\begin{align}
         \bar{G} = \mathbb{R}^6 \times (TSO(3))^2 \times (SE(3))^2,
 \end{align}\]</div>
 <p>where the groups are combined with a direct-product structure and <span class="math notranslate nohighlight">\(\mathbb{R}^6\)</span> is the additive group. For a group element</p>
-<div class="math notranslate nohighlight">
-\[\begin{align}
+<div class="math notranslate nohighlight" id="equation-ode-14">
+<span class="eqno">(15)<a class="headerlink" href="#equation-ode-14" title="Permalink to this equation">¶</a></span>\[\begin{align}
         g=((a_1,a_2),((B_1,b_1),(B_2,b_2)),((C_1,c_1),(C_2,c_2)))\in \bar{G}
 \end{align}\]</div>
 <p>and a point <span class="math notranslate nohighlight">\(P \in \mathcal{M}\)</span> in the manifold, we consider the following left action</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{align}
+<div class="math notranslate nohighlight" id="equation-ode-15">
+<span class="eqno">(16)<a class="headerlink" href="#equation-ode-15" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{align}
         \begin{split}
         \psi_g(P) = [y+a_1, \;\;v+a_2,\;\; &amp;B_1R_1,\;\;  \Omega_1 + b_1,\;\; B_2R_2,\;\; \Omega_2 + b_2,\;\;\\ &amp;C_1q_1,\;\;C_1\omega_1 + c_1\times C_1q_1,\;\; C_2q_2,\;\;C_2\omega_2 + c_2\times C_2q_2].
         \end{split}
 \end{align}\end{split}\]</div>
 <p>It can be proved that this is a well-defined and transitive action of <span class="math notranslate nohighlight">\(\bar{G}\)</span> on <span class="math notranslate nohighlight">\(\mathcal{M}\)</span>. The infinitesimal generator associated to</p>
-<div class="math notranslate nohighlight">
-\[\begin{align}
+<div class="math notranslate nohighlight" id="equation-ode-16">
+<span class="eqno">(17)<a class="headerlink" href="#equation-ode-16" title="Permalink to this equation">¶</a></span>\[\begin{align}
         \xi = \left[\xi_1 ,\;\; \xi_2,\;\; \eta_1 ,\;\; \eta_2 ,\;\; \eta_3 ,\;\; \eta_4 ,\;\; \mu_1 ,\;\; \mu_2 ,\;\; \mu_3 ,\;\; \mu_4 \right]\in \mathfrak{\bar{g}},
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\mathfrak{\bar{g}}=T_e\bar{G}\)</span>, writes</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{align}
+<div class="math notranslate nohighlight" id="equation-ode-17">
+<span class="eqno">(18)<a class="headerlink" href="#equation-ode-17" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{align}
         \begin{split}
         \psi_{*}(\xi)\vert_P = [\xi_1,\;\; \xi_2, \;\; \hat{\eta}_1R_1,\;\; \eta_2,\;\; &amp;\hat{\eta}_3R_2,\;\;  \eta_4,\;\;\\
         &amp; \hat{\mu}_1q_1,\;\; \hat{\mu}_1\omega_1 + \hat{\mu}_2q_1, \;\; \hat{\mu}_3q_2,\;\; \hat{\mu}_3\omega_2 + \hat{\mu}_4q_2 ].
         \end{split}
 \end{align}\end{split}\]</div>
 <p>We can now construct the function <span class="math notranslate nohighlight">\(f:\mathcal{M}\rightarrow \bar{\mathfrak{g}}\)</span> such that <span class="math notranslate nohighlight">\(\psi_{*}(f(P))\vert_P=F\vert_P\)</span>, where</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{align}
+<div class="math notranslate nohighlight" id="equation-ode-18">
+<span class="eqno">(19)<a class="headerlink" href="#equation-ode-18" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{align}
         \begin{split}
         F\vert_P = [\bar{h}_1(P), \;\; \bar{h}_2(P), \;\; R_1&amp;\hat{\Omega}_1,\;\; \bar{h}_3(P), \;\;  R_2\hat{\Omega}_2,\;\;\\
         &amp;\bar{h}_4(P), \;\; \hat{\omega}_1q_1, \;\; \bar{h}_5(P),\;\; \hat{\omega}_2q_2, \;\; \bar{h}_6(P)]\in T_{P}\mathcal{M}
         \end{split}
 \end{align}\end{split}\]</div>
 <p>is the vector field obtained combining the kinematic and dynamic equations of motion. We have</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{align}
+<div class="math notranslate nohighlight" id="equation-ode-19">
+<span class="eqno">(20)<a class="headerlink" href="#equation-ode-19" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{align}
         \begin{split}
         f(P) = [\bar{h}_1(P),\;\; \bar{h}_2(P),\;\; R_1\Omega_1,\;\;&amp;\bar{h}_3(P),\;\; R_2\Omega_2,\;\;\bar{h}_4(P),\\
         \;\;&amp;\omega_1,\;\; q_1\times \bar{h}_5(P),\;\;\omega_2,\;\; q_2\times \bar{h}_6(P)]\in\bar{\mathfrak{g}}.
