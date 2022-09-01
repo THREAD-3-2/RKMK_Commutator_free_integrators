@@ -88,38 +88,36 @@ Let us consider an s-stage Runge-Kutta (RK) method:
 .. math::
     :name: eq:int5
 
-\begin{align}
-y_{n+1}=y_n+h \sum_{i=1}^s b_i F\left(Y_i\right), \quad Y_i=y_n+h \sum_{j=1}^s a_{i j} F\left(Y_j\right), \quad i=1, \ldots, s,
-\end{align}
+    \begin{align}
+    y_{n+1}=y_n+h \sum_{i=1}^s b_i F\left(Y_i\right), \quad Y_i=y_n+h \sum_{j=1}^s a_{i j} F\left(Y_j\right), \quad i=1, \ldots, s,
+    \end{align}
 
 where :math:`b_i,\,a_{ij}\, (i,\,j=1,\dots\,s)` are real numbers called, respectively, the weights and coefficients of 
-the method, and :math:`c_i=\sum_{j=1}^s a_{ij}`. These constants define a specific RK method and can be collected
+the method, and :math:`c_i=\sum_{j=1}^s a_{ij}` are called the nodes or abscissae. These constants define a specific RK method and can be collected
 in the following Butcher's tableau:
 
 .. math::
     :name: eq:int6
 
-\begin{align}
-\begin{array}{c|cccc}
-c_1 & a_{11} & a_{12} & \ldots & a_{1 s} \\
-c_2 & a_{21} & a_{22} & \ldots & a_{2 s} \\
-\vdots & \vdots & \vdots & \ddots & \vdots \\
-c_s & a_{s 1} & a_{s 2} & \ldots & a_{s s} \\
-\hline & b_1 & b_2 & \ldots & b_s
-\end{array}
-\end{align}
+    \begin{align}
+    \begin{array}{c|cccc}
+    c_1 & a_{11} & a_{12} & \ldots & a_{1 s} \\
+    c_2 & a_{21} & a_{22} & \ldots & a_{2 s} \\
+    \vdots & \vdots & \vdots & \ddots & \vdots \\
+    c_s & a_{s 1} & a_{s 2} & \ldots & a_{s s} \\
+    \hline & b_1 & b_2 & \ldots & b_s
+    \end{array}
+    \end{align}
 
-
-
-From equation 
+From equation :eq:`int2` we see that
 
 .. math::
     :name: eq:int7
 
-\begin{align}
-&y_1=\exp \left(h \sum_{i=1}^s b_i k_i\right) \cdot y_0,\\
-&k_i=\operatorname{dexp}_{h \sum_j^{-1} a_{i j} k_j} f\left(\exp \left(h \sum_j a_{i j} k_j\right) \cdot y_0\right), \quad i=1, \ldots, s .
-\end{align}
+    \begin{align}
+    &y_1=\exp \left(h \sum_{i=1}^s b_i k_i\right) \cdot y_0,\\
+    &k_i=\operatorname{dexp}_{h \sum_j^{-1} a_{i j} k_j} f\left(\exp \left(h \sum_j a_{i j} k_j\right) \cdot y_0\right), \quad i=1, \ldots, s .
+    \end{align}
 
 
 .. _cfree_int:
