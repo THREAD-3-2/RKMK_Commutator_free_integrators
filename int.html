@@ -91,31 +91,28 @@ and <a class="reference external" href="https://github.com/THREAD-3-2/RKMK_Commu
 <span id="rkmk-ex-int"></span><h3>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h3>
 <p>Let us consider an s-stage Runge-Kutta (RK) method:</p>
 <div class="math notranslate nohighlight" id="eq-int5">
-<span id="equation-eq-int5"></span><span class="eqno">(4)<a class="headerlink" href="#eq-int5" title="Permalink to this equation">¶</a></span>\[\]</div>
-<p>begin{align}
-y_{n+1}=y_n+h sum_{i=1}^s b_i Fleft(Y_iright), quad Y_i=y_n+h sum_{j=1}^s a_{i j} Fleft(Y_jright), quad i=1, ldots, s,
-end{align}</p>
+<span id="equation-eq-int5"></span><span class="eqno">(4)<a class="headerlink" href="#eq-int5" title="Permalink to this equation">¶</a></span>\[\begin{align}
+y_{n+1}=y_n+h \sum_{i=1}^s b_i F\left(Y_i\right), \quad Y_i=y_n+h \sum_{j=1}^s a_{i j} F\left(Y_j\right), \quad i=1, \ldots, s,
+\end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(b_i,\,a_{ij}\, (i,\,j=1,\dots\,s)\)</span> are real numbers called, respectively, the weights and coefficients of
-the method, and <span class="math notranslate nohighlight">\(c_i=\sum_{j=1}^s a_{ij}\)</span>. These constants define a specific RK method and can be collected
+the method, and <span class="math notranslate nohighlight">\(c_i=\sum_{j=1}^s a_{ij}\)</span> are called the nodes or abscissae. These constants define a specific RK method and can be collected
 in the following Butcher’s tableau:</p>
 <div class="math notranslate nohighlight" id="eq-int6">
-<span id="equation-eq-int6"></span><span class="eqno">(5)<a class="headerlink" href="#eq-int6" title="Permalink to this equation">¶</a></span>\[\]</div>
-<p>begin{align}
-begin{array}{c|cccc}
-c_1 &amp; a_{11} &amp; a_{12} &amp; ldots &amp; a_{1 s} \
-c_2 &amp; a_{21} &amp; a_{22} &amp; ldots &amp; a_{2 s} \
-vdots &amp; vdots &amp; vdots &amp; ddots &amp; vdots \
-c_s &amp; a_{s 1} &amp; a_{s 2} &amp; ldots &amp; a_{s s} \
-hline &amp; b_1 &amp; b_2 &amp; ldots &amp; b_s
-end{array}
-end{align}</p>
-<p>From equation</p>
+<span id="equation-eq-int6"></span><span class="eqno">(5)<a class="headerlink" href="#eq-int6" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{align}
+\begin{array}{c|cccc}
+c_1 &amp; a_{11} &amp; a_{12} &amp; \ldots &amp; a_{1 s} \\
+c_2 &amp; a_{21} &amp; a_{22} &amp; \ldots &amp; a_{2 s} \\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+c_s &amp; a_{s 1} &amp; a_{s 2} &amp; \ldots &amp; a_{s s} \\
+\hline &amp; b_1 &amp; b_2 &amp; \ldots &amp; b_s
+\end{array}
+\end{align}\end{split}\]</div>
+<p>From equation <code class="xref eq docutils literal notranslate"><span class="pre">int2</span></code> we see that</p>
 <div class="math notranslate nohighlight" id="eq-int7">
-<span id="equation-eq-int7"></span><span class="eqno">(6)<a class="headerlink" href="#eq-int7" title="Permalink to this equation">¶</a></span>\[\]</div>
-<p>begin{align}
-&amp;y_1=exp left(h sum_{i=1}^s b_i k_iright) cdot y_0,\
-&amp;k_i=operatorname{dexp}_{h sum_j^{-1} a_{i j} k_j} fleft(exp left(h sum_j a_{i j} k_jright) cdot y_0right), quad i=1, ldots, s .
-end{align}</p>
+<span id="equation-eq-int7"></span><span class="eqno">(6)<a class="headerlink" href="#eq-int7" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{align}
+&amp;y_1=\exp \left(h \sum_{i=1}^s b_i k_i\right) \cdot y_0,\\
+&amp;k_i=\operatorname{dexp}_{h \sum_j^{-1} a_{i j} k_j} f\left(\exp \left(h \sum_j a_{i j} k_j\right) \cdot y_0\right), \quad i=1, \ldots, s .
+\end{align}\end{split}\]</div>
 </section>
 </section>
 <section id="commutator-free-methods">
