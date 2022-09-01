@@ -4,7 +4,7 @@
 Algorithms
 ===========
 
-.. _elec_ibvp:
+.. _rkmk_int:
 
 Runge-Kutta-Munthe-Kaas methods
 -------------------------------
@@ -15,7 +15,7 @@ whose tangent at any point coincides with a vector field :math:`F\in\mathcal{X}(
 and passes through a designated initial value :math:`y_0` at :math:`t=t_0`:
 
 .. math::
-
+    :name: eq:int1
     \begin{align}
         \dot{y}(t) = F|_{y(t)},\qquad y(t_0)=y_0.    
     \end{align}
@@ -33,7 +33,7 @@ More explicitly, let :math:`h_n` be the size of the :math:`n-th` time step, we t
 :math:`y_n\in\mathcal{M}` to :math:`y_{n+1}` by
 
 .. math::
-    :name: eq:1
+    :name: eq:int2
     
     \begin{align}
         \begin{cases}
@@ -54,7 +54,7 @@ has an expansion in nested Lie brackets and, using the operator :math:`\textrm{a
 and its powers :math:`\textrm{ad}_u^2 v=[u,[u,v]]` etc, one can write
 
 .. math::
-    :name: eq:2
+    :name: eq:int3
     
     \begin{align}
         \textrm{dexp}_u(v) = \left.\frac{e^z-1}{z}\right|_{z=\textrm{ad}_u}(v) = v + \frac12[u,v] + \frac16[u,[u,v]] + \cdots.
@@ -63,7 +63,7 @@ and its powers :math:`\textrm{ad}_u^2 v=[u,[u,v]]` etc, one can write
 The inverse is
 
 .. math::
-    :name: eq:3
+    :name: eq:int4
     
     \begin{align}
         \textrm{dexp}_u^{-1}(v) =\left.\frac{z}{e^z-1}\right|_{z=\textrm{ad}_u}(v)= v -\frac12[u,v] + \frac1{12}[u,[u,v]]+\cdots.
@@ -79,7 +79,18 @@ the exponential map on SO(3) and SE(3) are implemented
 in `dexpinvSO3 <https://github.com/THREAD-3-2/RKMK_Commutator_free_integrators/blob/main/src/lie_group_functions/dexpinvSO3.m>`_ 
 and `dexpinvSE3 <https://github.com/THREAD-3-2/RKMK_Commutator_free_integrators/blob/main/src/lie_group_functions/dexpinvSE3.m>`_.
 
-.. _elec_ibvp:
+One step of 
+
+.. math::
+    :name: eq:int5
+
+\begin{align}
+&y_1=\exp \left(h \sum_{i=1}^s b_i k_i\right) \cdot y_0,\\
+&k_i=\operatorname{dexp}_{h \sum_j^{-1} a_{i j} k_j} f\left(\exp \left(h \sum_j a_{i j} k_j\right) \cdot y_0\right), \quad i=1, \ldots, s .
+\end{align}
+
+
+.. _cfree_int:
 
 Commutator-free methods
 -----------------------
