@@ -54,8 +54,8 @@ of <span class="math notranslate nohighlight">\(G\)</span>, on which we can perf
 then map the result back to <span class="math notranslate nohighlight">\(\mathcal{M}\)</span>, and repeat this up to the final integration time.
 More explicitly, let <span class="math notranslate nohighlight">\(h_n\)</span> be the size of the <span class="math notranslate nohighlight">\(n-th\)</span> time step, we then update
 <span class="math notranslate nohighlight">\(y_n\in\mathcal{M}\)</span> to <span class="math notranslate nohighlight">\(y_{n+1}\)</span> by</p>
-<div class="math notranslate nohighlight" id="eq-int2">
-<span id="equation-eq-int2"></span><span class="eqno">(1)<a class="headerlink" href="#eq-int2" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{align}
+<div class="math notranslate nohighlight" id="equation-int2">
+<span class="eqno">(1)<a class="headerlink" href="#equation-int2" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{align}
     \begin{cases}
     \sigma(0) = 0\in\mathfrak{g},\\
     \dot{\sigma}(t) = \textrm{dexp}_{\sigma(t)}^{-1}\circ f\circ \psi \left(\exp(\sigma(t)),y_n\right)\in T_{\sigma(t)}\mathfrak{g}, \\
@@ -107,7 +107,7 @@ c_s &amp; a_{s 1} &amp; a_{s 2} &amp; \ldots &amp; a_{s s} \\
 \hline &amp; b_1 &amp; b_2 &amp; \ldots &amp; b_s
 \end{array}
 \end{align}\end{split}\]</div>
-<p>From equation <code class="xref eq docutils literal notranslate"><span class="pre">int2</span></code> we see that</p>
+<p>From equation <a class="reference internal" href="#equation-int2">(1)</a> we see that</p>
 <div class="math notranslate nohighlight" id="eq-int7">
 <span id="equation-eq-int7"></span><span class="eqno">(6)<a class="headerlink" href="#eq-int7" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{align}
 &amp;y_1=\exp \left(h \sum_{i=1}^s b_i k_i\right) \cdot y_0,\\

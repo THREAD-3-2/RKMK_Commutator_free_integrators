@@ -33,7 +33,7 @@ More explicitly, let :math:`h_n` be the size of the :math:`n-th` time step, we t
 :math:`y_n\in\mathcal{M}` to :math:`y_{n+1}` by
 
 .. math::
-    :name: eq:int2
+    :label: int2
     
     \begin{align}
         \begin{cases}
