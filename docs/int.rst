@@ -16,6 +16,7 @@ and passes through a designated initial value :math:`y_0` at :math:`t=t_0`:
 
 .. math::
     :label: vecfield
+
     \begin{align}
         \dot{y}(t) = F|_{y(t)},\qquad y(t_0)=y_0.    
     \end{align}
@@ -93,8 +94,8 @@ Let us consider an s-stage Runge-Kutta (RK) method:
     \end{align}
 
 where :math:`b_i,\,a_{ij}\, (i,\,j=1,\dots\,s)` are real numbers called, respectively, the weights and coefficients of 
-the method, and :math:`c_i=\sum_{j=1}^s a_{ij}` are called the nodes or abscissae. These constants define a specific RK method and can be collected
-in the following Butcher's tableau:
+the method, and :math:`c_i=\sum_{j=1}^s a_{ij}` are called the nodes or abscissae. These constants define a specific RK method and can 
+be collected in the following Butcher's tableau:
 
 .. math::
     :label: eq:int6
@@ -109,15 +110,70 @@ in the following Butcher's tableau:
     \end{array}
     \end{align}
 
-From equation :eq:`int2` we see that
+From equation :eq:`int2` it follows that one step of the resulting Runge–Kutta–Munthe-Kaas method writes 
 
 .. math::
     :label: eq:int7
 
     \begin{align}
     &y_1=\exp \left(h \sum_{i=1}^s b_i k_i\right) \cdot y_0,\\
-    &k_i=\operatorname{dexp}_{h \sum_j^{-1} a_{i j} k_j} f\left(\exp \left(h \sum_j a_{i j} k_j\right) \cdot y_0\right), \quad i=1, \ldots, s .
+    &k_i=\operatorname{dexp}_{h \sum_j^{-1} a_{i j} k_j} f\left(\exp \left(h \sum_j a_{i j} k_j\right) \cdot y_0\right), \quad i=1, \ldots, s,
     \end{align}
+
+where we denote the group action by ":math:`\cdot`" for ease of notation. 
+
+The simplest Lie group integrator is the Lie-Euler method, based on claccic (explicit) Euler method, a first order method with Butcher tableau given by
+
+.. math::
+
+    \begin{align}
+    \begin{array}{c|c}
+    0 & 0 \\
+    \hline & 1
+    \end{array}
+    \end{align}
+
+The resulting Lie-Euler method can be written as :math:`y_{n+1}=\exp \left(h F_{y_n}\right) y_n` and is implemenmted in 
+`LieEuler <https://github.com/THREAD-3-2/RKMK_Commutator_free_integrators/blob/main/src/integrators/LieEuler.m>`_.
+
+An improvement to the Lie-Euler method is the second-order RKMK method based on the Heun method's tableau:
+
+.. math::
+
+    begin{align}
+    \begin{array}{c|cc}
+    0 & 0 & 0 \\
+    1 / 2 & 1 / 2 & 0 \\
+    \hline & 0 & 1
+    \end{array}
+    \end{align}
+
+The Heun RKMK integrator is implemented in `RKMK2Heun <https://github.com/THREAD-3-2/RKMK_Commutator_free_integrators/blob/main/src/integrators/RKMK2Heun.m>`_
+
+A third order and a fourth order method are given by the following Butcher's tableau
+
+.. math::
+
+    \begin align
+    \begin{array}{c|ccc}
+    0 & 0 & 0 & 0 \\
+    1 / 2 & 1 / 2 & 0 & 0 \\
+    1 & -1 & 2 & 0 \\
+    \hline & 1 / 6 & 2 / 3 & 1 / 6
+    \end{array} \qquad
+    \begin{array}{c|cccc}
+    0 & 0 & 0 & 0 & 0 \\
+    1 / 2 & 1 / 2 & 0 & 0 & 0 \\
+    1 / 2 & 0 & 1 / 2 & 0 & 0 \\
+    1 & 0 & 0 & 1 & 0 \\
+    \hline & 1 / 6 & 1 / 3 & 1 / 3 & 1 / 6
+    \end{array}
+    \end{align}
+
+The corresponding RKMK integrators are implemented in `RKMK3 <https://github.com/THREAD-3-2/RKMK_Commutator_free_integrators/blob/main/src/integrators/RKMK3.m>`_ and
+`RKMK4 <https://github.com/THREAD-3-2/RKMK_Commutator_free_integrators/blob/main/src/integrators/RKMK4.m>`_.
+
+
 
 
 .. _cfree_int:
