@@ -40,6 +40,12 @@
 <section id="problem-description">
 <span id="descr-ode"></span><h2>Problem description<a class="headerlink" href="#problem-description" title="Permalink to this heading">¶</a></h2>
 <p>We consider a multibody system made of two cooperating quadrotor unmanned aerial vehicles (UAV) connected to a point mass (suspended load) via rigid links. This model is described in <a class="reference external" href="https://dx.doi.org/10.1109/CDC.2013.6760757">(Lee, Sreenath, Kumar, 2013)</a>.</p>
+<figure class="align-default" id="id1">
+<img alt="docs/figures/quadrotors.png" src="docs/figures/quadrotors.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1. Two quadrotors connected to the mass point <span class="math notranslate nohighlight">\(m_y\)</span> via massless links of lengths <span class="math notranslate nohighlight">\(L_i\)</span>.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>We introduce an inertial frame whose third axis goes in the direction of gravity, but opposite orientation, and we attach body-fixed frames to each quadrotor (with the origins located respectively at the center of mass of each quadrotor). We denote with <span class="math notranslate nohighlight">\(y,y_1,y_2\in\mathbb{R}^3\)</span> the locations, respectively, of the mass point and the center of mass of each quadrotor with respect to the intertial frame. We assume that the links between the two quadrotors and the mass point are of a fixed length <span class="math notranslate nohighlight">\(L_1, L_2\in\mathbb{R}^+\)</span>. The configuration variables of the system are: the position of the mass point in the inertial frame, <span class="math notranslate nohighlight">\(y\in \mathbb{R}^3\)</span>, the attitude matrices of the two quadrotors, <span class="math notranslate nohighlight">\((R_1, R_2)\in (SO(3))^2\)</span> and the directions of the links which connect the center of mass of each quadrotor respectively with the mass point, <span class="math notranslate nohighlight">\((q_1,q_2)\in (S^2)^2\)</span>. The configuration manifold of the system is</p>
 <div class="math notranslate nohighlight" id="equation-ode-0">
 <span class="eqno">(1)<a class="headerlink" href="#equation-ode-0" title="Permalink to this equation">¶</a></span>\[\begin{align}
