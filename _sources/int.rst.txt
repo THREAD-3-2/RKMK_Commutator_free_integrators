@@ -162,7 +162,7 @@ A third order and a fourth order method result from the following Butcher's tabl
     1 & -1 & 2 & 0 \\
     \hline & {1/6} & {2/3} & {1/6}
     \end{array} 
-    \qquad
+    \qquad \quad
     \begin{array}{c|cccc}
     0 & 0 & 0 & 0 & 0 \\
     {1/2} & {1/2} & 0 & 0 & 0 \\

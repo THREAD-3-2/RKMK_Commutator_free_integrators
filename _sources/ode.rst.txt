@@ -11,7 +11,7 @@ Problem description
 
 We consider a multibody system made of two cooperating quadrotor unmanned aerial vehicles (UAV) connected to a point mass (suspended load) via rigid links. This model is described in `(Lee, Sreenath, Kumar, 2013) <https://dx.doi.org/10.1109/CDC.2013.6760757>`_.
 
-.. figure:: /docs/figures/quadrotors.png
+.. figure:: /figures/quadrotors.png
 
    Figure 1. Two quadrotors connected to the mass point :math:`m_y` via massless links of lengths :math:`L_i`.
 
