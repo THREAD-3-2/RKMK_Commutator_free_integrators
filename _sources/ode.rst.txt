@@ -124,7 +124,10 @@ We highlight that the inputs :math:`\{u_i^{\parallel},u_i^{\perp},M_i\}_{i=1,2}`
 Analysis via transitive group action
 ------------------------------------
 
-In this section we show how to obtain the local representation of the vector field :math:`F\in\mathfrak{X}(\mathcal{M})` of the system presented un the previous section, in terms of the infinitesimal generator of a transitive group action :math:`\psi`. This is the formalism also used in the  `main code <https://github.com/THREAD-3-2/RKMK_Commutator_free_integrators/blob/main/src/main.m>`_. We start by identifying the phase space :math:`\mathcal{M}` with 
+In this section we show how to obtain the local representation of the vector field :math:`F\in\mathfrak{X}(\mathcal{M})` of the system presented above 
+in terms of the infinitesimal generator of a transitive group action :math:`\psi`, as described in the section `Algorithms <https://thread-3-2.github.io/RKMK_Commutator_free_integrators/int.html>`_.
+This is the formalism also used in the  `main code <https://github.com/THREAD-3-2/RKMK_Commutator_free_integrators/blob/main/src/main.m>`_. 
+We start by identifying the phase space :math:`\mathcal{M}` with 
 
 .. math::
 
