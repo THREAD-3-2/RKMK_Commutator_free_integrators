@@ -18,7 +18,7 @@ and passes through a designated initial value :math:`y_0` at :math:`t=t_0`:
     :label: vecfield
 
     \begin{align}
-        \dot{y}(t) = F|_{y(t)},\qquad y(t_0)=y_0.    
+        \dot{y}(t) = F\left(y(t)\right),\qquad y(t_0)=y_0.    
     \end{align}
 
 Let :math:`G` be a Lie group acting transitively on :math:`\mathcal{M}` via the 
@@ -122,7 +122,7 @@ From equation :eq:`int2` it follows that one step of the resulting Runge–Kutta
 
 where we denote the group action by ":math:`\cdot`" for ease of notation. 
 
-The simplest Lie group integrator is the Lie-Euler method, based on claccic (explicit) Euler method, a first order method with Butcher tableau given by
+The simplest Lie group integrator is the Lie-Euler method, based on the claccical (explicit) Euler method, a first order method with Butcher tableau given by
 
 .. math::
 
@@ -133,10 +133,10 @@ The simplest Lie group integrator is the Lie-Euler method, based on claccic (exp
     \end{array}
     \end{align}
 
-The resulting Lie-Euler method can be written as :math:`y_{n+1}=\exp \left(h F_{y_n}\right) y_n` and is implemenmted in 
+The resulting Lie-Euler method can be written as :math:`y_{n+1}=\exp \left(h F(y_n)\right) y_n` and is implemenmted in 
 `LieEuler <https://github.com/THREAD-3-2/RKMK_Commutator_free_integrators/blob/main/src/integrators/LieEuler.m>`_.
 
-An improvement to the Lie-Euler method is the second-order RKMK method based on the Heun method's tableau:
+An improvement to the Lie-Euler method is the second-order RKMK method based on the tableu of the Heun method:
 
 .. math::
 
@@ -150,17 +150,19 @@ An improvement to the Lie-Euler method is the second-order RKMK method based on 
 
 The Heun RKMK integrator is implemented in `RKMK2Heun <https://github.com/THREAD-3-2/RKMK_Commutator_free_integrators/blob/main/src/integrators/RKMK2Heun.m>`_
 
-A third order and a fourth order method are given by the following Butcher's tableau
+A third order and a fourth order method result from the following Butcher's tableau:
 
 .. math::
+    :label: 4ord
 
-    \begin align
+    \begin{align}
     \begin{array}{c|ccc}
     0 & 0 & 0 & 0 \\
     {1/2} & {1/2} & 0 & 0 \\
     1 & -1 & 2 & 0 \\
     \hline & {1/6} & {2/3} & {1/6}
-    \end{array} \qquad
+    \end{array} 
+    \qquad
     \begin{array}{c|cccc}
     0 & 0 & 0 & 0 & 0 \\
     {1/2} & {1/2} & 0 & 0 & 0 \\
@@ -202,10 +204,29 @@ computationally inexpensive schemes with the highest possible order of convergen
 The computational complexity of the above schemes depends on the cost of computing an 
 exponential as well as of evaluating the vector field. Therefore it makes sense to 
 keep the number of exponentials :math:`J` in each stage as low as possible, and 
-possibly also the number of stages :math:`s`.
+possibly also the number of stages :math:`s`. 
+
+The following example is a generalization of the classical fourth-order
+Runge–Kutta method in :eq:`4ord` and is implemented in  `CFree4 <https://github.com/THREAD-3-2/RKMK_Commutator_free_integrators/blob/main/src/integrators/CFree4.m>`_:
+
+
+.. math::
+
+    \begin{aligned}
+    &Y_1=y_0, \\
+    &Y_2=\exp \left(\frac{1}{2} k_1\right) \cdot y_0, \\
+    &Y_3=\exp \left(\frac{1}{2} k_2\right) \cdot y_0 \\
+    &Y_4=\exp \left(k_3-\frac{1}{2} k_1\right) \cdot Y_2, \\
+    &y_{\frac{1}{2}}=\exp \left(\frac{1}{12}\left(3 k_1+2 k_2+2 k_3-k_4\right)\right) \cdot y_0, \\
+    &y_1=\exp \left(\frac{1}{12}\left(-k_1+2 k_2+2 k_3+3 k_4\right)\right) \cdot y_{\frac{1}{2}},
+    \end{aligned}
+
+with :math:`k_i=hf(Y_i)`. We notice that one exponential is saved in computing :math:`Y_4` by making use of :math:`Y_2`. This shows that sometimes it is possible 
+to come up with tricks that allow to reuse exponentials from one stage to another, thereby lowering 
+the computational cost of the scheme.
 
 We refer to `(Celledoni, Çokaj, Leone, Murari and Owren, 2021) <https://doi.org/10.1080/00207160.2021.1966772>`_ 
-and references therein for further details.
+and references cited therein for further details.
 
 
 

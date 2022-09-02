@@ -45,7 +45,7 @@ whose tangent at any point coincides with a vector field <span class="math notra
 and passes through a designated initial value <span class="math notranslate nohighlight">\(y_0\)</span> at <span class="math notranslate nohighlight">\(t=t_0\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-vecfield">
 <span class="eqno">(1)<a class="headerlink" href="#equation-vecfield" title="Permalink to this equation">¶</a></span>\[\begin{align}
-    \dot{y}(t) = F|_{y(t)},\qquad y(t_0)=y_0.
+    \dot{y}(t) = F\left(y(t)\right),\qquad y(t_0)=y_0.
 \end{align}\]</div>
 <p>Let <span class="math notranslate nohighlight">\(G\)</span> be a Lie group acting transitively on <span class="math notranslate nohighlight">\(\mathcal{M}\)</span> via the
 group action <span class="math notranslate nohighlight">\(\psi:G \times \mathcal{M} \rightarrow \mathcal{M}\)</span>, so
@@ -118,7 +118,7 @@ c_s &amp; a_{s 1} &amp; a_{s 2} &amp; \ldots &amp; a_{s s} \\
 &amp;k_i=\operatorname{dexp}_{h \sum_j^{-1} a_{i j} k_j} f\left(\exp \left(h \sum_j a_{i j} k_j\right) \cdot y_0\right), \quad i=1, \ldots, s,
 \end{align}\end{split}\]</div>
 <p>where we denote the group action by “<span class="math notranslate nohighlight">\(\cdot\)</span>” for ease of notation.</p>
-<p>The simplest Lie group integrator is the Lie-Euler method, based on claccic (explicit) Euler method, a first order method with Butcher tableau given by</p>
+<p>The simplest Lie group integrator is the Lie-Euler method, based on the claccical (explicit) Euler method, a first order method with Butcher tableau given by</p>
 <div class="math notranslate nohighlight" id="equation-int-0">
 <span class="eqno">(8)<a class="headerlink" href="#equation-int-0" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{align}
 \begin{array}{c|c}
@@ -126,9 +126,9 @@ c_s &amp; a_{s 1} &amp; a_{s 2} &amp; \ldots &amp; a_{s s} \\
 \hline &amp; 1
 \end{array}
 \end{align}\end{split}\]</div>
-<p>The resulting Lie-Euler method can be written as <span class="math notranslate nohighlight">\(y_{n+1}=\exp \left(h F_{y_n}\right) y_n\)</span> and is implemenmted in
+<p>The resulting Lie-Euler method can be written as <span class="math notranslate nohighlight">\(y_{n+1}=\exp \left(h F(y_n)\right) y_n\)</span> and is implemenmted in
 <a class="reference external" href="https://github.com/THREAD-3-2/RKMK_Commutator_free_integrators/blob/main/src/integrators/LieEuler.m">LieEuler</a>.</p>
-<p>An improvement to the Lie-Euler method is the second-order RKMK method based on the Heun method’s tableau:</p>
+<p>An improvement to the Lie-Euler method is the second-order RKMK method based on the tableu of the Heun method:</p>
 <div class="math notranslate nohighlight" id="equation-int-1">
 <span class="eqno">(9)<a class="headerlink" href="#equation-int-1" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{align}
 \begin{array}{c|cc}
@@ -138,15 +138,16 @@ c_s &amp; a_{s 1} &amp; a_{s 2} &amp; \ldots &amp; a_{s s} \\
 \end{array}
 \end{align}\end{split}\]</div>
 <p>The Heun RKMK integrator is implemented in <a class="reference external" href="https://github.com/THREAD-3-2/RKMK_Commutator_free_integrators/blob/main/src/integrators/RKMK2Heun.m">RKMK2Heun</a></p>
-<p>A third order and a fourth order method are given by the following Butcher’s tableau</p>
-<div class="math notranslate nohighlight" id="equation-int-2">
-<span class="eqno">(10)<a class="headerlink" href="#equation-int-2" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin align
+<p>A third order and a fourth order method result from the following Butcher’s tableau:</p>
+<div class="math notranslate nohighlight" id="equation-4ord">
+<span class="eqno">(10)<a class="headerlink" href="#equation-4ord" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{align}
 \begin{array}{c|ccc}
 0 &amp; 0 &amp; 0 &amp; 0 \\
 {1/2} &amp; {1/2} &amp; 0 &amp; 0 \\
 1 &amp; -1 &amp; 2 &amp; 0 \\
 \hline &amp; {1/6} &amp; {2/3} &amp; {1/6}
-\end{array} \qquad
+\end{array}
+\qquad
 \begin{array}{c|cccc}
 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
 {1/2} &amp; {1/2} &amp; 0 &amp; 0 &amp; 0 \\
@@ -164,8 +165,8 @@ c_s &amp; a_{s 1} &amp; a_{s 2} &amp; \ldots &amp; a_{s s} \\
 <p>The second class of Lie group integrators to be considered here are the commutator-free methods,
 named this way to emphasize the contrast to RKMK schemes which usually include commutators in
 the method format. These schemes include the Crouch-Grossman methods and have the format</p>
-<div class="math notranslate nohighlight" id="equation-int-3">
-<span class="eqno">(11)<a class="headerlink" href="#equation-int-3" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{align}
+<div class="math notranslate nohighlight" id="equation-int-2">
+<span class="eqno">(11)<a class="headerlink" href="#equation-int-2" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{align}
     Y_{n,r} &amp;= \exp\Big(h\sum_{k}\alpha_{r,J}^k f_{n,k}\Big)\cdots \exp\Big(h\sum_{k}\alpha_{r,1}^k f_{n,k}\Big) \cdot y_n\\
     f_{n,r} &amp;= f(Y_{n,r}) \\[1mm]
     y_{n+1} &amp;= \exp\Big(h\sum_k \beta_J^k f_{n,k}\Big)\cdots \exp\Big(h\sum_k \beta_1^k f_{n,k}\Big) \cdot y_n
@@ -180,8 +181,22 @@ The computational complexity of the above schemes depends on the cost of computi
 exponential as well as of evaluating the vector field. Therefore it makes sense to
 keep the number of exponentials <span class="math notranslate nohighlight">\(J\)</span> in each stage as low as possible, and
 possibly also the number of stages <span class="math notranslate nohighlight">\(s\)</span>.</p>
+<p>The following example is a generalization of the classical fourth-order
+Runge–Kutta method in <a class="reference internal" href="#equation-4ord">(10)</a> and is implemented in  <a class="reference external" href="https://github.com/THREAD-3-2/RKMK_Commutator_free_integrators/blob/main/src/integrators/CFree4.m">CFree4</a>:</p>
+<div class="math notranslate nohighlight" id="equation-int-3">
+<span class="eqno">(12)<a class="headerlink" href="#equation-int-3" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+&amp;Y_1=y_0, \\
+&amp;Y_2=\exp \left(\frac{1}{2} k_1\right) \cdot y_0, \\
+&amp;Y_3=\exp \left(\frac{1}{2} k_2\right) \cdot y_0 \\
+&amp;Y_4=\exp \left(k_3-\frac{1}{2} k_1\right) \cdot Y_2, \\
+&amp;y_{\frac{1}{2}}=\exp \left(\frac{1}{12}\left(3 k_1+2 k_2+2 k_3-k_4\right)\right) \cdot y_0, \\
+&amp;y_1=\exp \left(\frac{1}{12}\left(-k_1+2 k_2+2 k_3+3 k_4\right)\right) \cdot y_{\frac{1}{2}},
+\end{aligned}\end{split}\]</div>
+<p>with <span class="math notranslate nohighlight">\(k_i=hf(Y_i)\)</span>. We notice that one exponential is saved in computing <span class="math notranslate nohighlight">\(Y_4\)</span> by making use of <span class="math notranslate nohighlight">\(Y_2\)</span>. This shows that sometimes it is possible
+to come up with tricks that allow to reuse exponentials from one stage to another, thereby lowering
+the computational cost of the scheme.</p>
 <p>We refer to <a class="reference external" href="https://doi.org/10.1080/00207160.2021.1966772">(Celledoni, Çokaj, Leone, Murari and Owren, 2021)</a>
-and references therein for further details.</p>
+and references cited therein for further details.</p>
 </section>
 </section>
 
