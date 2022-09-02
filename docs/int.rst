@@ -144,7 +144,7 @@ An improvement to the Lie-Euler method is the second-order RKMK method based on 
     \begin{array}{c|cc}
     0 & 0 & 0 \\
     1 & 1 & 0 \\
-    \hline & 0 & 1
+    \hline & 1/2 & 1/2
     \end{array}
     \end{align}
 
@@ -162,7 +162,7 @@ A third order and a fourth order method result from the following Butcher's tabl
     1 & -1 & 2 & 0 \\
     \hline & {1/6} & {2/3} & {1/6}
     \end{array} 
-    \qquad \quad
+    \qquad \qquad \quad
     \begin{array}{c|cccc}
     0 & 0 & 0 & 0 & 0 \\
     {1/2} & {1/2} & 0 & 0 & 0 \\
