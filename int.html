@@ -115,7 +115,7 @@ c_s &amp; a_{s 1} &amp; a_{s 2} &amp; \ldots &amp; a_{s s} \\
 <div class="math notranslate nohighlight" id="equation-int7">
 <span class="eqno">(7)<a class="headerlink" href="#equation-int7" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{align}
 &amp;y_1=\exp \left(h \sum_{i=1}^s b_i k_i\right) \cdot y_0,\\
-&amp;k_i=\operatorname{dexp}_{h \sum_j^{-1} a_{i j} k_j} f\left(\exp \left(h \sum_j a_{i j} k_j\right) \cdot y_0\right), \quad i=1, \ldots, s,
+&amp;k_i=\operatorname{dexp}^{-1}_{h \sum_j a_{i j} k_j} f\left(\exp \left(h \sum_j a_{i j} k_j\right) \cdot y_0\right), \quad i=1, \ldots, s,
 \end{align}\end{split}\]</div>
 <p>where we denote the group action by “<span class="math notranslate nohighlight">\(\cdot\)</span>” for ease of notation.</p>
 <p>The simplest Lie group integrator is the Lie-Euler method, based on the claccical (explicit) Euler method, a first order method with Butcher tableau given by</p>
@@ -128,7 +128,7 @@ c_s &amp; a_{s 1} &amp; a_{s 2} &amp; \ldots &amp; a_{s s} \\
 \end{align}\end{split}\]</div>
 <p>The resulting Lie-Euler method can be written as <span class="math notranslate nohighlight">\(y_{n+1}=\exp \left(h F(y_n)\right) y_n\)</span> and is implemenmted in
 <a class="reference external" href="https://github.com/THREAD-3-2/RKMK_Commutator_free_integrators/blob/main/src/integrators/LieEuler.m">LieEuler</a>.</p>
-<p>An improvement to the Lie-Euler method is the second-order RKMK method based on the tableu of the Heun method:</p>
+<p>An improvement to the Lie-Euler method is the second-order RKMK method based on the tableu of the Heun’s method:</p>
 <div class="math notranslate nohighlight" id="equation-int-1">
 <span class="eqno">(9)<a class="headerlink" href="#equation-int-1" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{align}
 \begin{array}{c|cc}
@@ -137,7 +137,7 @@ c_s &amp; a_{s 1} &amp; a_{s 2} &amp; \ldots &amp; a_{s s} \\
 \hline &amp; 1/2 &amp; 1/2
 \end{array}
 \end{align}\end{split}\]</div>
-<p>The Heun RKMK integrator is implemented in <a class="reference external" href="https://github.com/THREAD-3-2/RKMK_Commutator_free_integrators/blob/main/src/integrators/RKMK2Heun.m">RKMK2Heun</a></p>
+<p>The resulting RKMK integrator is implemented in <a class="reference external" href="https://github.com/THREAD-3-2/RKMK_Commutator_free_integrators/blob/main/src/integrators/RKMK2Heun.m">RKMK2Heun</a></p>
 <p>A third order and a fourth order method result from the following Butcher’s tableau:</p>
 <div class="math notranslate nohighlight" id="equation-4ord">
 <span class="eqno">(10)<a class="headerlink" href="#equation-4ord" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{align}
@@ -171,7 +171,7 @@ the method format. These schemes include the Crouch-Grossman methods and have th
     f_{n,r} &amp;= f(Y_{n,r}) \\[1mm]
     y_{n+1} &amp;= \exp\Big(h\sum_k \beta_J^k f_{n,k}\Big)\cdots \exp\Big(h\sum_k \beta_1^k f_{n,k}\Big) \cdot y_n
 \end{align}\end{split}\]</div>
-<p>where we denote the group action by “<span class="math notranslate nohighlight">\(\cdot\)</span>” for ease of notation. Here
+<p>where “<span class="math notranslate nohighlight">\(\cdot\)</span>” denotes the group action. Here
 the Runge-Kutta coefficients <span class="math notranslate nohighlight">\(\alpha_{r,j}^k\)</span>, <span class="math notranslate nohighlight">\(\beta_{j}^r\)</span> are related
 to a classical Runge-Kutta scheme with coefficients <span class="math notranslate nohighlight">\(a_r^k\)</span>, <span class="math notranslate nohighlight">\(b_r\)</span> in
 that <span class="math notranslate nohighlight">\(a_r^k=\sum_j \alpha_{r,j}^k\)</span> and <span class="math notranslate nohighlight">\(b_r=\sum_j \beta_{j}^r\)</span>.

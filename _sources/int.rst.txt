@@ -117,7 +117,7 @@ From equation :eq:`int2` it follows that one step of the resulting Runge–Kutta
 
     \begin{align}
     &y_1=\exp \left(h \sum_{i=1}^s b_i k_i\right) \cdot y_0,\\
-    &k_i=\operatorname{dexp}_{h \sum_j^{-1} a_{i j} k_j} f\left(\exp \left(h \sum_j a_{i j} k_j\right) \cdot y_0\right), \quad i=1, \ldots, s,
+    &k_i=\operatorname{dexp}^{-1}_{h \sum_j a_{i j} k_j} f\left(\exp \left(h \sum_j a_{i j} k_j\right) \cdot y_0\right), \quad i=1, \ldots, s,
     \end{align}
 
 where we denote the group action by ":math:`\cdot`" for ease of notation. 
@@ -136,7 +136,7 @@ The simplest Lie group integrator is the Lie-Euler method, based on the claccica
 The resulting Lie-Euler method can be written as :math:`y_{n+1}=\exp \left(h F(y_n)\right) y_n` and is implemenmted in 
 `LieEuler <https://github.com/THREAD-3-2/RKMK_Commutator_free_integrators/blob/main/src/integrators/LieEuler.m>`_.
 
-An improvement to the Lie-Euler method is the second-order RKMK method based on the tableu of the Heun method:
+An improvement to the Lie-Euler method is the second-order RKMK method based on the tableu of the Heun's method:
 
 .. math::
 
@@ -148,7 +148,7 @@ An improvement to the Lie-Euler method is the second-order RKMK method based on 
     \end{array}
     \end{align}
 
-The Heun RKMK integrator is implemented in `RKMK2Heun <https://github.com/THREAD-3-2/RKMK_Commutator_free_integrators/blob/main/src/integrators/RKMK2Heun.m>`_
+The resulting RKMK integrator is implemented in `RKMK2Heun <https://github.com/THREAD-3-2/RKMK_Commutator_free_integrators/blob/main/src/integrators/RKMK2Heun.m>`_
 
 A third order and a fourth order method result from the following Butcher's tableau:
 
@@ -195,7 +195,7 @@ the method format. These schemes include the Crouch-Grossman methods and have th
         y_{n+1} &= \exp\Big(h\sum_k \beta_J^k f_{n,k}\Big)\cdots \exp\Big(h\sum_k \beta_1^k f_{n,k}\Big) \cdot y_n
     \end{align}
 
-where we denote the group action by ":math:`\cdot`" for ease of notation. Here 
+where ":math:`\cdot`" denotes the group action. Here 
 the Runge-Kutta coefficients :math:`\alpha_{r,j}^k`, :math:`\beta_{j}^r` are related 
 to a classical Runge-Kutta scheme with coefficients :math:`a_r^k`, :math:`b_r` in 
 that :math:`a_r^k=\sum_j \alpha_{r,j}^k` and :math:`b_r=\sum_j \beta_{j}^r`. 
