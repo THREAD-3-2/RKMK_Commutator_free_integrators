@@ -11,6 +11,10 @@ Problem description
 
 We consider a multibody system made of two cooperating quadrotor unmanned aerial vehicles (UAV) connected to a point mass (suspended load) via rigid links. This model is described in `(Lee, Sreenath, Kumar, 2013) <https://dx.doi.org/10.1109/CDC.2013.6760757>`_.
 
+.. figure:: /docs/figures/quadrotors.png
+
+   Figure 1. Two quadrotors connected to the mass point :math:`m_y` via massless links of lengths :math:`L_i`.
+
 We introduce an inertial frame whose third axis goes in the direction of gravity, but opposite orientation, and we attach body-fixed frames to each quadrotor (with the origins located respectively at the center of mass of each quadrotor). We denote with :math:`y,y_1,y_2\in\mathbb{R}^3` the locations, respectively, of the mass point and the center of mass of each quadrotor with respect to the intertial frame. We assume that the links between the two quadrotors and the mass point are of a fixed length :math:`L_1, L_2\in\mathbb{R}^+`. The configuration variables of the system are: the position of the mass point in the inertial frame, :math:`y\in \mathbb{R}^3`, the attitude matrices of the two quadrotors, :math:`(R_1, R_2)\in (SO(3))^2` and the directions of the links which connect the center of mass of each quadrotor respectively with the mass point, :math:`(q_1,q_2)\in (S^2)^2`. The configuration manifold of the system is 
 
 .. math::   
