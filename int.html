@@ -96,11 +96,11 @@ and <a class="reference external" href="https://github.com/THREAD-3-2/RKMK_Commu
 <p>Let us consider an s-stage Runge-Kutta (RK) method:</p>
 <div class="math notranslate nohighlight" id="equation-int5">
 <span class="eqno">(5)<a class="headerlink" href="#equation-int5" title="Permalink to this equation">¶</a></span>\[\begin{align}
-y_{n+1}=y_n+h \sum_{i=1}^s b_i F\left(Y_i\right), \quad Y_i=y_n+h \sum_{j=1}^s a_{i j} F\left(Y_j\right), \quad i=1, \ldots, s,
+y_{n+1}=y_n+h \sum_{i=1}^s b_i k_i, \quad k_i=F\left(y_n+h \sum_{j=1}^s a_{i j} k_j \right), \quad i=1, \ldots, s,
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(b_i,\,a_{ij}\, (i,\,j=1,\dots\,s)\)</span> are real numbers called, respectively, the weights and coefficients of
 the method, and <span class="math notranslate nohighlight">\(c_i=\sum_{j=1}^s a_{ij}\)</span> are called the nodes or abscissae. These constants define a specific RK method and can
-be collected in the following Butcher’s tableau:</p>
+be collected in the following table, known as Butcher’s tableau:</p>
 <div class="math notranslate nohighlight" id="equation-int6">
 <span class="eqno">(6)<a class="headerlink" href="#equation-int6" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{align}
 \begin{array}{c|cccc}
@@ -118,7 +118,7 @@ c_s &amp; a_{s 1} &amp; a_{s 2} &amp; \ldots &amp; a_{s s} \\
 &amp;k_i=\operatorname{dexp}^{-1}_{h \sum_j a_{i j} k_j} f\left(\exp \left(h \sum_j a_{i j} k_j\right) \cdot y_0\right), \quad i=1, \ldots, s,
 \end{align}\end{split}\]</div>
 <p>where we denote the group action by “<span class="math notranslate nohighlight">\(\cdot\)</span>” for ease of notation.</p>
-<p>The simplest Lie group integrator is the Lie-Euler method, based on the claccical (explicit) Euler method, a first order method with Butcher tableau given by</p>
+<p>The simplest Lie group integrator is the Lie-Euler method, based on the classical explicit Euler method, a first-order method with Butcher’s tableau given by</p>
 <div class="math notranslate nohighlight" id="equation-int-0">
 <span class="eqno">(8)<a class="headerlink" href="#equation-int-0" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{align}
 \begin{array}{c|c}
@@ -128,7 +128,7 @@ c_s &amp; a_{s 1} &amp; a_{s 2} &amp; \ldots &amp; a_{s s} \\
 \end{align}\end{split}\]</div>
 <p>The resulting Lie-Euler method can be written as <span class="math notranslate nohighlight">\(y_{n+1}=\exp \left(h F(y_n)\right) y_n\)</span> and is implemenmted in
 <a class="reference external" href="https://github.com/THREAD-3-2/RKMK_Commutator_free_integrators/blob/main/src/integrators/LieEuler.m">LieEuler</a>.</p>
-<p>An improvement to the Lie-Euler method is the second-order RKMK method based on the tableu of the Heun’s method:</p>
+<p>An improvement to the Lie-Euler method is the second-order RKMK method based on the tableau of the Heun’s method:</p>
 <div class="math notranslate nohighlight" id="equation-int-1">
 <span class="eqno">(9)<a class="headerlink" href="#equation-int-1" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{align}
 \begin{array}{c|cc}
@@ -138,7 +138,7 @@ c_s &amp; a_{s 1} &amp; a_{s 2} &amp; \ldots &amp; a_{s s} \\
 \end{array}
 \end{align}\end{split}\]</div>
 <p>The resulting RKMK integrator is implemented in <a class="reference external" href="https://github.com/THREAD-3-2/RKMK_Commutator_free_integrators/blob/main/src/integrators/RKMK2Heun.m">RKMK2Heun</a></p>
-<p>A third order and a fourth order method result from the following Butcher’s tableau:</p>
+<p>The following Butcher’s tables provide the coefficients for two classical methods of order three (on the left) and order four (on the right):</p>
 <div class="math notranslate nohighlight" id="equation-4ord">
 <span class="eqno">(10)<a class="headerlink" href="#equation-4ord" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{align}
 \begin{array}{c|ccc}

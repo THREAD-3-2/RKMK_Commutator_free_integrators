@@ -90,12 +90,12 @@ Let us consider an s-stage Runge-Kutta (RK) method:
     :label: int5
 
     \begin{align}
-    y_{n+1}=y_n+h \sum_{i=1}^s b_i F\left(Y_i\right), \quad Y_i=y_n+h \sum_{j=1}^s a_{i j} F\left(Y_j\right), \quad i=1, \ldots, s,
+    y_{n+1}=y_n+h \sum_{i=1}^s b_i k_i, \quad k_i=F\left(y_n+h \sum_{j=1}^s a_{i j} k_j \right), \quad i=1, \ldots, s,
     \end{align}
 
 where :math:`b_i,\,a_{ij}\, (i,\,j=1,\dots\,s)` are real numbers called, respectively, the weights and coefficients of 
 the method, and :math:`c_i=\sum_{j=1}^s a_{ij}` are called the nodes or abscissae. These constants define a specific RK method and can 
-be collected in the following Butcher's tableau:
+be collected in the following table, known as Butcher's tableau:
 
 .. math::
     :label: int6
@@ -122,7 +122,7 @@ From equation :eq:`int2` it follows that one step of the resulting Runge–Kutta
 
 where we denote the group action by ":math:`\cdot`" for ease of notation. 
 
-The simplest Lie group integrator is the Lie-Euler method, based on the claccical (explicit) Euler method, a first order method with Butcher tableau given by
+The simplest Lie group integrator is the Lie-Euler method, based on the classical explicit Euler method, a first-order method with Butcher's tableau given by
 
 .. math::
 
@@ -136,7 +136,7 @@ The simplest Lie group integrator is the Lie-Euler method, based on the claccica
 The resulting Lie-Euler method can be written as :math:`y_{n+1}=\exp \left(h F(y_n)\right) y_n` and is implemenmted in 
 `LieEuler <https://github.com/THREAD-3-2/RKMK_Commutator_free_integrators/blob/main/src/integrators/LieEuler.m>`_.
 
-An improvement to the Lie-Euler method is the second-order RKMK method based on the tableu of the Heun's method:
+An improvement to the Lie-Euler method is the second-order RKMK method based on the tableau of the Heun's method:
 
 .. math::
 
@@ -150,7 +150,7 @@ An improvement to the Lie-Euler method is the second-order RKMK method based on 
 
 The resulting RKMK integrator is implemented in `RKMK2Heun <https://github.com/THREAD-3-2/RKMK_Commutator_free_integrators/blob/main/src/integrators/RKMK2Heun.m>`_
 
-A third order and a fourth order method result from the following Butcher's tableau:
+The following Butcher's tables provide the coefficients for two classical methods of order three (on the left) and order four (on the right):
 
 .. math::
     :label: 4ord
