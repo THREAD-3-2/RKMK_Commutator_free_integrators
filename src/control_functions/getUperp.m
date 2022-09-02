@@ -1,9 +1,10 @@
 function uperp = getUperp(m1,m2,my,L1,L2,B,trajectory)
-% support function used to define the control functions and the vector field
+% Support function used to define the control functions and the vector field
+
+% :returns: 6x1 vector, with uperp1=uperp(1:3) and uperp2=uperp(4:6)
 
 % equation numbers are a reference to Ref[29] in the paper related to the code
 
-% uperp is a 6x1 vector so uperp1 = uperp(1:3), uperp2 = uperp(4:6)
     
     ky = 12;
     kydot = 5;

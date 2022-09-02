@@ -1,5 +1,5 @@
 function u = deriv4(v,vdot,v2dot,v3dot,v4dot)
-% support function used to define the control functions
+% Support function used to define the control functions
 %
 % :param v: vector 
 % :param vdot: time derivative of vector v  
