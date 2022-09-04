@@ -47,7 +47,8 @@ and passes through a designated initial value <span class="math notranslate nohi
 <span class="eqno">(1)<a class="headerlink" href="#equation-vecfield" title="Permalink to this equation">¶</a></span>\[\begin{align}
     \dot{y}(t) = F\left(y(t)\right),\qquad y(t_0)=y_0.
 \end{align}\]</div>
-<p>Let <span class="math notranslate nohighlight">\(G\)</span> be a Lie group acting transitively on <span class="math notranslate nohighlight">\(\mathcal{M}\)</span> via the
+<p>Notice that we restrict the discussion to the case of autonomous vector field (explicit time dependence
+could easily be included). Let <span class="math notranslate nohighlight">\(G\)</span> be a Lie group acting transitively on <span class="math notranslate nohighlight">\(\mathcal{M}\)</span> via the
 group action <span class="math notranslate nohighlight">\(\psi:G \times \mathcal{M} \rightarrow \mathcal{M}\)</span>, so
 that <span class="math notranslate nohighlight">\(\mathcal{M}\)</span> is a homogeneous manifold. The underlying idea of Runge-Kutta-Munthe-Kaas
 (RKMK) methods is to express a vector field <span class="math notranslate nohighlight">\(F\in\mathfrak{X}(\mathcal{M})\)</span> as
@@ -93,7 +94,7 @@ in <a class="reference external" href="https://github.com/THREAD-3-2/RKMK_Commut
 and <a class="reference external" href="https://github.com/THREAD-3-2/RKMK_Commutator_free_integrators/blob/main/src/lie_group_functions/dexpinvSE3.m">dexpinvSE3</a>.</p>
 <section id="examples">
 <span id="rkmk-ex-int"></span><h3>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h3>
-<p>Let us consider an s-stage Runge-Kutta (RK) method:</p>
+<p>Let us consider an s-stage Runge-Kutta (RK) method for the initial value problem <a class="reference internal" href="#equation-vecfield">(1)</a>:</p>
 <div class="math notranslate nohighlight" id="equation-int5">
 <span class="eqno">(5)<a class="headerlink" href="#equation-int5" title="Permalink to this equation">¶</a></span>\[\begin{align}
 y_{n+1}=y_n+h \sum_{i=1}^s b_i k_i, \quad k_i=F\left(y_n+h \sum_{j=1}^s a_{i j} k_j \right), \quad i=1, \ldots, s,
