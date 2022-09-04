@@ -21,7 +21,8 @@ and passes through a designated initial value :math:`y_0` at :math:`t=t_0`:
         \dot{y}(t) = F\left(y(t)\right),\qquad y(t_0)=y_0.    
     \end{align}
 
-Let :math:`G` be a Lie group acting transitively on :math:`\mathcal{M}` via the 
+Notice that we restrict the discussion to the case of autonomous vector field (explicit time dependence 
+could easily be included). Let :math:`G` be a Lie group acting transitively on :math:`\mathcal{M}` via the 
 group action :math:`\psi:G \times \mathcal{M} \rightarrow \mathcal{M}`, so 
 that :math:`\mathcal{M}` is a homogeneous manifold. The underlying idea of Runge-Kutta-Munthe-Kaas 
 (RKMK) methods is to express a vector field :math:`F\in\mathfrak{X}(\mathcal{M})` as 
@@ -84,7 +85,7 @@ and `dexpinvSE3 <https://github.com/THREAD-3-2/RKMK_Commutator_free_integrators/
 
 Examples
 ^^^^^^^^
-Let us consider an s-stage Runge-Kutta (RK) method:
+Let us consider an s-stage Runge-Kutta (RK) method for the initial value problem :eq:`vecfield`:
 
 .. math::
     :label: int5
