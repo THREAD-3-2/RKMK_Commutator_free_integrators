@@ -127,18 +127,18 @@ c_s &amp; a_{s 1} &amp; a_{s 2} &amp; \ldots &amp; a_{s s} \\
 \hline &amp; 1
 \end{array}
 \end{align}\end{split}\]</div>
-<p>The resulting Lie-Euler method can be written as <span class="math notranslate nohighlight">\(y_{n+1}=\exp \left(h F(y_n)\right) y_n\)</span> and is implemenmted in
+<p>The resulting Lie-Euler method is implemenmted in
 <a class="reference external" href="https://github.com/THREAD-3-2/RKMK_Commutator_free_integrators/blob/main/src/integrators/LieEuler.m">LieEuler</a>.</p>
-<p>An improvement to the Lie-Euler method is the second-order RKMK method based on the tableau of the Heun’s method:</p>
+<p>An improvement to the Lie-Euler method is the second-order RKMK method based on the tableau of the Heun’s method,</p>
 <div class="math notranslate nohighlight" id="equation-int-1">
 <span class="eqno">(9)<a class="headerlink" href="#equation-int-1" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{align}
 \begin{array}{c|cc}
 0 &amp; 0 &amp; 0 \\
 1 &amp; 1 &amp; 0 \\
 \hline &amp; 1/2 &amp; 1/2
-\end{array}
+\end{array},
 \end{align}\end{split}\]</div>
-<p>The resulting RKMK integrator is implemented in <a class="reference external" href="https://github.com/THREAD-3-2/RKMK_Commutator_free_integrators/blob/main/src/integrators/RKMK2Heun.m">RKMK2Heun</a></p>
+<p>and implemented in <a class="reference external" href="https://github.com/THREAD-3-2/RKMK_Commutator_free_integrators/blob/main/src/integrators/RKMK2Heun.m">RKMK2Heun</a></p>
 <p>The following Butcher’s tables provide the coefficients for two classical methods of order three (on the left) and order four (on the right):</p>
 <div class="math notranslate nohighlight" id="equation-4ord">
 <span class="eqno">(10)<a class="headerlink" href="#equation-4ord" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{align}

@@ -134,10 +134,10 @@ The simplest Lie group integrator is the Lie-Euler method, based on the classica
     \end{array}
     \end{align}
 
-The resulting Lie-Euler method can be written as :math:`y_{n+1}=\exp \left(h F(y_n)\right) y_n` and is implemenmted in 
+The resulting Lie-Euler method is implemenmted in 
 `LieEuler <https://github.com/THREAD-3-2/RKMK_Commutator_free_integrators/blob/main/src/integrators/LieEuler.m>`_.
 
-An improvement to the Lie-Euler method is the second-order RKMK method based on the tableau of the Heun's method:
+An improvement to the Lie-Euler method is the second-order RKMK method based on the tableau of the Heun's method,
 
 .. math::
 
@@ -146,10 +146,10 @@ An improvement to the Lie-Euler method is the second-order RKMK method based on 
     0 & 0 & 0 \\
     1 & 1 & 0 \\
     \hline & 1/2 & 1/2
-    \end{array}
+    \end{array},
     \end{align}
 
-The resulting RKMK integrator is implemented in `RKMK2Heun <https://github.com/THREAD-3-2/RKMK_Commutator_free_integrators/blob/main/src/integrators/RKMK2Heun.m>`_
+and implemented in `RKMK2Heun <https://github.com/THREAD-3-2/RKMK_Commutator_free_integrators/blob/main/src/integrators/RKMK2Heun.m>`_
 
 The following Butcher's tables provide the coefficients for two classical methods of order three (on the left) and order four (on the right):
 
