@@ -71,7 +71,7 @@ The inverse is
         \textrm{dexp}_u^{-1}(v) =\left.\frac{z}{e^z-1}\right|_{z=\textrm{ad}_u}(v)= v -\frac12[u,v] + \frac1{12}[u,[u,v]]+\cdots.
     \end{align}
 
-To evaluate :math:`\textrm{dexp}_u^{-1}(v)` one can either truncate the series :ref:`(3) <eq:2>`, 
+To evaluate :math:`\textrm{dexp}_u^{-1}(v)` one can either truncate the series :eq:`int3`, 
 or compute its exact expression for the particular Lie algebra under consideration. The exponential 
 maps on the Lie groups SO(3) and SE(3) are implemented in 
 `expSO3 <https://github.com/THREAD-3-2/RKMK_Commutator_free_integrators/blob/main/src/lie_group_functions/expSO3.m>`_ 
