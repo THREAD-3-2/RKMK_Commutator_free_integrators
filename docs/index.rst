@@ -1,5 +1,5 @@
 ========================================
- Documentation of `RKMK_Commutator_free_integrators`
+RKMK Commutator Free Integrators Documentation
 ========================================
 
 `RKMK_Commutator_free_integrators <https://github.com/THREAD-3-2/RKMK_Commutator_free_integrators>`_
