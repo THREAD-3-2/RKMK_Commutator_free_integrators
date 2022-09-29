@@ -6,3 +6,6 @@
 An example on the application of Runge-Kutta-Munthe-Kaas and Commutator free Lie group integrators for the solution of the equations of motion of a multibody system.
 
 Matlab code.
+
+![](https://github.com/THREAD-3-2/.github/blob/main/profile/thread-logo.jpg)
+![](https://github.com/THREAD-3-2/.github/blob/main/profile/flag_yellow.png)
